@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Antlr.Runtime;
+using System.Collections;
 
 namespace Motorola.PublicSafety.Platform.DHStore.Compiler
 {
     public class Dhsqli
     {
-        public void ExecQuery(string query)
+        public IEnumerable ExecQuery(string query)
         {
             ICharStream input = new ANTLRStringStream(query);
 
