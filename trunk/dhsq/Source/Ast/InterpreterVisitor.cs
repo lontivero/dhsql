@@ -3,30 +3,47 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml.Linq;
 using System.Data;
+using System.Collections;
 
 namespace Motorola.PublicSafety.Platform.DHStore.Compiler
 {
     public class InterpreterVisitor : AbstractVisitor
     {
-        public override void VisitSelect(SelectStatement node)
-        {
+        private Dictionary<string, Field> fields = new Dictionary<string,Field>();
 
-            foreach (var f in node.Fields)
+        public override IEnumerable VisitSelect(SelectStatement node)
+        {
+            foreach (var field in node.Fields)
             {
-                f.Accept(this);
+                field.Accept(this);
             }
 
-            if (node.Where != null)
+            var andElement =  new XElement("And");
+            foreach(var field in fields)
             {
-                Console.WriteLine("WHERE");
-                node.Where.Accept(this);
+                andElement.Add( new XAttribute("path", field.Value.XPath) );
+                andElement.Add( new XAttribute("operator", field.Value.XPath) );
             }
 
             var queryXML = new XElement("Query",
-                new XElement("And",
-                    new XElement("Field",
-                        new XElement())));
+                new XElement("Criteria",
+                    new XElement("And",
+                        new XElement("Field", new XAttribute("Path", 
+                            new 
+                            )));
 
+
+            @"<Query>
+                    <Criteria>
+                        <And>
+                            <Field path='/AgencyId' operator='eq'>
+                              <Value>{0}</Value>
+                            </Field>
+                        </And>
+                    </Criteria>
+                    <OrderBy>
+                    </OrderBy>
+                </Query>";
 
 
             var queryResult = idxService.Query(queryXML.ToString());
@@ -50,7 +67,7 @@ namespace Motorola.PublicSafety.Platform.DHStore.Compiler
 
         public override void VisitField(Field node)
         {
-            Console.WriteLine("   {0, -12} AS {1}.text()", node.Alias.Name, node.XPath);
+            fields.Add(node.Alias.Name, node);
         }
 
         public override void VisitIdentifier(Identifier identifier)

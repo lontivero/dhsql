@@ -1,14 +1,8 @@
 ﻿
-using Antlr.Runtime.Tree;
 using System;
 using System.IO;
 using Antlr.Runtime;
 using System.Text;
-using Antlr.StringTemplate;
-using Antlr.StringTemplate.Language;
-
-using Motorola.PublicSafety.Platform.DHStore.Compiler;
-
 
 namespace Motorola.PublicSafety.Platform.DHStore.Compiler
 {
@@ -34,22 +28,18 @@ namespace Motorola.PublicSafety.Platform.DHStore.Compiler
 
         public static void Main(String[] args)
         {
-            ANTLRFileStream input = new ANTLRFileStream(args[0], Encoding.ASCII);
+            var sb = new StringBuilder();
+            sb
+                .Append("from Agencies ")
+                .Append("select ")
+                .Append("  '/Person/FirstName' as FirstName, ")
+                .Append("  '/Person/Age' as Age, ")
+                .Append("  '/Person/Children/Name' as Childs ")
+                .Append("where ")
+                .Append("((FirstName = 'Franco') and Age > 10)");
 
-            //Lexer
-            DhsqLexer lexer = new DhsqLexer(input);
-            CommonTokenStream tokens = new CommonTokenStream(lexer);
-
-            //Parser and AST construction
-            DhsqParser parser = new DhsqParser(tokens);
-            DhsqParser.query_return result = parser.query();
-
-            var visitor = new TraceVisitor();
-            result.StatementValue.Accept(visitor);
-
-            CommonTree tree = (CommonTree)result.Tree;
-            Console.Write(tree.ToStringTree());
-            CheckErrors();
+            var interpreter = new Dhsqli();
+            var docs = interpreter.ExecQuery(sb.ToString());
         }
     }
 }

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Collections;
 
 namespace Motorola.PublicSafety.Platform.DHStore.Compiler
 {
     public abstract class AbstractVisitor
     {
-        public abstract void VisitSelect(SelectStatement node);
+        public abstract IEnumerable VisitSelect(SelectStatement node);
 
         public abstract void VisitField(Field node);
 
