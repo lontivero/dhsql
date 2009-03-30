@@ -1,0 +1,7 @@
+from Agencies 
+select 
+    '/Person/FirstName' as FirstName,
+    '/Person/Age' as Age,
+    '/Person/Children/Name' as Childs
+where ((FirstName = 'Franco') and Age > 10)
+
