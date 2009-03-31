@@ -12,6 +12,7 @@
     <AssemblyName>Motorola.PublicSafety.Platform.DHStore.Compiler</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,6 +40,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Library\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Motorola.Common, Version=0.1.830.1, Culture=neutral, PublicKeyToken=a14438fffbde4426, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Library\Motorola.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Motorola.DHStore.Definitions, Version=0.1.830.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Library\Motorola.DHStore.Definitions.dll</HintPath>
+    </Reference>
     <Reference Include="StringTemplate, Version=3.0.1.6846, Culture=neutral, PublicKeyToken=beee492b52c41e85, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Library\StringTemplate.dll</HintPath>
@@ -48,6 +57,12 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>

@@ -21,8 +21,8 @@ namespace Motorola.PublicSafety.Platform.DHStore.Compiler
             DhsqParser parser = new DhsqParser(tokens);
             DhsqParser.query_return result = parser.query();
 
-            var visitor = new TraceVisitor();
-            result.StatementValue.Accept(visitor);
+            var visitor = new InterpreterVisitor();
+            return visitor.VisitSelect((SelectStatement)result.StatementValue); 
         }
     }
 }
