@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Collections;
 
 namespace Motorola.PublicSafety.Platform.DHStore.Compiler
 {
     public class TraceVisitor : AbstractVisitor
     {
-        public override void VisitSelect(SelectStatement node)
+        public override IEnumerable VisitSelect(SelectStatement node)
         {
             Console.WriteLine("SELECT");
             foreach (var f in node.Fields)
@@ -19,6 +20,8 @@ namespace Motorola.PublicSafety.Platform.DHStore.Compiler
                 Console.WriteLine("WHERE");
                 node.Where.Accept(this);
             }
+
+            return null;
         }
 
         public override void VisitField(Field node)

@@ -8,8 +8,6 @@ namespace Motorola.PublicSafety.Platform.DHStore.Compiler
 {
     class Compiler
     {
-        static public CommonTreeNodeStream nodes;
-
         static bool single_error_fatal = false;
         static bool error_occurred = false;
 
