@@ -12,23 +12,23 @@ namespace Motorola.PublicSafety.Platform.DHStore.Compiler
     public class InterpreterVisitor : AbstractVisitor
     {
         private Dictionary<string, Field> fields = new Dictionary<string,Field>();
-        private XElement xcriteria;
+        private XElement xwhere;
+        private XElement xorder;
         private XElement xfield;
         private string xid;
         private string xvalue;
         private string xpath;
 
-        public InterpreterVisitor()
-        {
-            xcriteria = new XElement("Criteria");
-        }
 
         public override IEnumerable VisitSelect(SelectStatement node)
         {
-            base.VisitSelect(node);
 
-            XElement queryXML = new XElement("Query", xcriteria);
-            queryXML.Add(new XElement("OrderBy"));
+            xwhere = new XElement("Criteria");
+            xorder = new XElement("OrderBy");
+
+            base.VisitSelect(node);
+            
+            XElement queryXML = new XElement("Query", xwhere, xorder);
 
             Query query = new Query();
             query.SourceId = new Guid();
@@ -80,11 +80,19 @@ namespace Motorola.PublicSafety.Platform.DHStore.Compiler
         public override void VisitLogicExpression(LogicExpression expression)
         {
             expression.Left.Accept(this);
-            xcriteria.Add(new XElement("And", xfield));
+            xwhere.Add(new XElement("And", xfield));
             expression.Right.Accept(this);
-            xcriteria.Add(new XElement("And", xfield));
+            xwhere.Add(new XElement("And", xfield));
         }
 
+        public override void VisitOrderBy(OrderBy orderBy)
+        {
+            foreach (var id in orderBy.Fields)
+            {
+                xorder.Add(new XElement("Order", fields[id.Name]));
+            }
+        }
+        
         public override void VisitValue(Value value)
         {
             xvalue = value.Val;

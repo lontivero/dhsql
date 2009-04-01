@@ -1,4 +1,4 @@
-// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 ..\\Source\\Antlr.Grammars\\Dhsq.g 2009-03-31 01:32:01
+// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 ..\\Source\\Antlr.Grammars\\Dhsq.g 2009-04-01 02:27:29
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 168, 219
@@ -57,6 +57,8 @@ public partial class DhsqParser : Parser
 		"'from'", 
 		"'select'", 
 		"'where'", 
+		"'order'", 
+		"'by'", 
 		"'*'", 
 		"'as'", 
 		"'('", 
@@ -92,8 +94,10 @@ public partial class DhsqParser : Parser
     public const int T__43 = 43;
     public const int T__40 = 40;
     public const int T__41 = 41;
-    public const int INT = 11;
+    public const int T__44 = 44;
+    public const int T__45 = 45;
     public const int SEMICOLON = 23;
+    public const int INT = 11;
     public const int FIELDS = 5;
     public const int SQUOTE = 14;
     public const int CONDITIONS = 7;
@@ -502,7 +506,7 @@ public partial class DhsqParser : Parser
     };
 
     // $ANTLR start "select"
-    // ..\\Source\\Antlr.Grammars\\Dhsq.g:68:1: select returns [SelectStatement SelectValue] : 'from' i= id 'select' f= fields ( 'where' e= expression )? ;
+    // ..\\Source\\Antlr.Grammars\\Dhsq.g:68:1: select returns [SelectStatement SelectValue] : 'from' i= id 'select' f= fields ( 'where' e= expression )? ( 'order' 'by' o= orders )? ;
     public DhsqParser.select_return select() // throws RecognitionException [1]
     {   
         DhsqParser.select_return retval = new DhsqParser.select_return();
@@ -513,48 +517,52 @@ public partial class DhsqParser : Parser
         IToken string_literal8 = null;
         IToken string_literal9 = null;
         IToken string_literal10 = null;
+        IToken string_literal11 = null;
+        IToken string_literal12 = null;
         DhsqParser.id_return i = default(DhsqParser.id_return);
 
         DhsqParser.fields_return f = default(DhsqParser.fields_return);
 
         DhsqParser.expression_return e = default(DhsqParser.expression_return);
 
+        DhsqParser.orders_return o = default(DhsqParser.orders_return);
+
 
         CommonTree string_literal8_tree=null;
         CommonTree string_literal9_tree=null;
         CommonTree string_literal10_tree=null;
-
-
-        	retval.SelectValue =  new SelectStatement(); 
+        CommonTree string_literal11_tree=null;
+        CommonTree string_literal12_tree=null;
 
         try 
     	{
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:73:2: ( 'from' i= id 'select' f= fields ( 'where' e= expression )? )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:73:4: 'from' i= id 'select' f= fields ( 'where' e= expression )?
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:69:2: ( 'from' i= id 'select' f= fields ( 'where' e= expression )? ( 'order' 'by' o= orders )? )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:69:4: 'from' i= id 'select' f= fields ( 'where' e= expression )? ( 'order' 'by' o= orders )?
             {
             	root_0 = (CommonTree)adaptor.GetNilNode();
 
-            	string_literal8=(IToken)Match(input,28,FOLLOW_28_in_select196); 
+            	string_literal8=(IToken)Match(input,28,FOLLOW_28_in_select190); 
             		string_literal8_tree = (CommonTree)adaptor.Create(string_literal8);
             		adaptor.AddChild(root_0, string_literal8_tree);
 
-            	PushFollow(FOLLOW_id_in_select208);
+            	 retval.SelectValue =  new SelectStatement(); 
+            	PushFollow(FOLLOW_id_in_select205);
             	i = id();
             	state.followingStackPointer--;
 
             	adaptor.AddChild(root_0, i.Tree);
             	 retval.SelectValue.SourceId = i.Id; 
-            	string_literal9=(IToken)Match(input,29,FOLLOW_29_in_select217); 
+            	string_literal9=(IToken)Match(input,29,FOLLOW_29_in_select216); 
             		string_literal9_tree = (CommonTree)adaptor.Create(string_literal9);
             		adaptor.AddChild(root_0, string_literal9_tree);
 
-            	PushFollow(FOLLOW_fields_in_select223);
+            	PushFollow(FOLLOW_fields_in_select220);
             	f = fields();
             	state.followingStackPointer--;
 
             	adaptor.AddChild(root_0, f.Tree);
-            	 retval.SelectValue.Fields = f.FieldsValue;
-            	// ..\\Source\\Antlr.Grammars\\Dhsq.g:76:6: ( 'where' e= expression )?
+            	 retval.SelectValue.Fields  = f.FieldsValue;
+            	// ..\\Source\\Antlr.Grammars\\Dhsq.g:72:6: ( 'where' e= expression )?
             	int alt2 = 2;
             	int LA2_0 = input.LA(1);
 
@@ -565,18 +573,53 @@ public partial class DhsqParser : Parser
             	switch (alt2) 
             	{
             	    case 1 :
-            	        // ..\\Source\\Antlr.Grammars\\Dhsq.g:76:7: 'where' e= expression
+            	        // ..\\Source\\Antlr.Grammars\\Dhsq.g:72:7: 'where' e= expression
             	        {
-            	        	string_literal10=(IToken)Match(input,30,FOLLOW_30_in_select233); 
+            	        	string_literal10=(IToken)Match(input,30,FOLLOW_30_in_select235); 
             	        		string_literal10_tree = (CommonTree)adaptor.Create(string_literal10);
             	        		adaptor.AddChild(root_0, string_literal10_tree);
 
-            	        	PushFollow(FOLLOW_expression_in_select237);
+            	        	 retval.SelectValue.Where = new Where(); 
+            	        	PushFollow(FOLLOW_expression_in_select245);
             	        	e = expression();
             	        	state.followingStackPointer--;
 
             	        	adaptor.AddChild(root_0, e.Tree);
-            	        	 retval.SelectValue.Where = e.ExpressionValue; 
+            	        	 retval.SelectValue.Where.Condition = e.ExpressionValue; 
+
+            	        }
+            	        break;
+
+            	}
+
+            	// ..\\Source\\Antlr.Grammars\\Dhsq.g:74:6: ( 'order' 'by' o= orders )?
+            	int alt3 = 2;
+            	int LA3_0 = input.LA(1);
+
+            	if ( (LA3_0 == 31) )
+            	{
+            	    alt3 = 1;
+            	}
+            	switch (alt3) 
+            	{
+            	    case 1 :
+            	        // ..\\Source\\Antlr.Grammars\\Dhsq.g:74:7: 'order' 'by' o= orders
+            	        {
+            	        	string_literal11=(IToken)Match(input,31,FOLLOW_31_in_select258); 
+            	        		string_literal11_tree = (CommonTree)adaptor.Create(string_literal11);
+            	        		adaptor.AddChild(root_0, string_literal11_tree);
+
+            	        	string_literal12=(IToken)Match(input,32,FOLLOW_32_in_select260); 
+            	        		string_literal12_tree = (CommonTree)adaptor.Create(string_literal12);
+            	        		adaptor.AddChild(root_0, string_literal12_tree);
+
+            	        	 retval.SelectValue.OrderBy = new OrderBy(); 
+            	        	PushFollow(FOLLOW_orders_in_select270);
+            	        	o = orders();
+            	        	state.followingStackPointer--;
+
+            	        	adaptor.AddChild(root_0, o.Tree);
+            	        	 retval.SelectValue.OrderBy.Fields = o.IdentifiersValue;   
 
             	        }
             	        break;
@@ -618,7 +661,7 @@ public partial class DhsqParser : Parser
     };
 
     // $ANTLR start "fields"
-    // ..\\Source\\Antlr.Grammars\\Dhsq.g:79:1: fields returns [List<Field> FieldsValue] : ( '*' | f= field ( COMMA f= field )* );
+    // ..\\Source\\Antlr.Grammars\\Dhsq.g:78:1: fields returns [List<Field> FieldsValue] : ( '*' | f= field ( COMMA f= field )* );
     public DhsqParser.fields_return fields() // throws RecognitionException [1]
     {   
         DhsqParser.fields_return retval = new DhsqParser.fields_return();
@@ -626,59 +669,59 @@ public partial class DhsqParser : Parser
 
         CommonTree root_0 = null;
 
-        IToken char_literal11 = null;
-        IToken COMMA12 = null;
+        IToken char_literal13 = null;
+        IToken COMMA14 = null;
         DhsqParser.field_return f = default(DhsqParser.field_return);
 
 
-        CommonTree char_literal11_tree=null;
-        CommonTree COMMA12_tree=null;
+        CommonTree char_literal13_tree=null;
+        CommonTree COMMA14_tree=null;
 
 
         	retval.FieldsValue =  new List<Field>(); 
 
         try 
     	{
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:84:2: ( '*' | f= field ( COMMA f= field )* )
-            int alt4 = 2;
-            int LA4_0 = input.LA(1);
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:83:2: ( '*' | f= field ( COMMA f= field )* )
+            int alt5 = 2;
+            int LA5_0 = input.LA(1);
 
-            if ( (LA4_0 == 31) )
+            if ( (LA5_0 == 33) )
             {
-                alt4 = 1;
+                alt5 = 1;
             }
-            else if ( (LA4_0 == TSTRING) )
+            else if ( (LA5_0 == TSTRING) )
             {
-                alt4 = 2;
+                alt5 = 2;
             }
             else 
             {
-                NoViableAltException nvae_d4s0 =
-                    new NoViableAltException("", 4, 0, input);
+                NoViableAltException nvae_d5s0 =
+                    new NoViableAltException("", 5, 0, input);
 
-                throw nvae_d4s0;
+                throw nvae_d5s0;
             }
-            switch (alt4) 
+            switch (alt5) 
             {
                 case 1 :
-                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:84:4: '*'
+                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:83:4: '*'
                     {
                     	root_0 = (CommonTree)adaptor.GetNilNode();
 
-                    	char_literal11=(IToken)Match(input,31,FOLLOW_31_in_fields262); 
-                    		char_literal11_tree = (CommonTree)adaptor.Create(char_literal11);
-                    		adaptor.AddChild(root_0, char_literal11_tree);
+                    	char_literal13=(IToken)Match(input,33,FOLLOW_33_in_fields296); 
+                    		char_literal13_tree = (CommonTree)adaptor.Create(char_literal13);
+                    		adaptor.AddChild(root_0, char_literal13_tree);
 
                     	 retval.FieldsValue.Add(new Field(){ XPath=string.Empty, Alias=new Identifier(){ Name="ALL" } } ); 
 
                     }
                     break;
                 case 2 :
-                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:85:4: f= field ( COMMA f= field )*
+                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:84:4: f= field ( COMMA f= field )*
                     {
                     	root_0 = (CommonTree)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_field_in_fields271);
+                    	PushFollow(FOLLOW_field_in_fields305);
                     	f = field();
                     	state.followingStackPointer--;
 
@@ -686,28 +729,28 @@ public partial class DhsqParser : Parser
                     	 
                     				retval.FieldsValue.Add(f.FieldValue); 
                     			
-                    	// ..\\Source\\Antlr.Grammars\\Dhsq.g:89:3: ( COMMA f= field )*
+                    	// ..\\Source\\Antlr.Grammars\\Dhsq.g:88:3: ( COMMA f= field )*
                     	do 
                     	{
-                    	    int alt3 = 2;
-                    	    int LA3_0 = input.LA(1);
+                    	    int alt4 = 2;
+                    	    int LA4_0 = input.LA(1);
 
-                    	    if ( (LA3_0 == COMMA) )
+                    	    if ( (LA4_0 == COMMA) )
                     	    {
-                    	        alt3 = 1;
+                    	        alt4 = 1;
                     	    }
 
 
-                    	    switch (alt3) 
+                    	    switch (alt4) 
                     		{
                     			case 1 :
-                    			    // ..\\Source\\Antlr.Grammars\\Dhsq.g:89:4: COMMA f= field
+                    			    // ..\\Source\\Antlr.Grammars\\Dhsq.g:88:4: COMMA f= field
                     			    {
-                    			    	COMMA12=(IToken)Match(input,COMMA,FOLLOW_COMMA_in_fields281); 
-                    			    		COMMA12_tree = (CommonTree)adaptor.Create(COMMA12);
-                    			    		adaptor.AddChild(root_0, COMMA12_tree);
+                    			    	COMMA14=(IToken)Match(input,COMMA,FOLLOW_COMMA_in_fields315); 
+                    			    		COMMA14_tree = (CommonTree)adaptor.Create(COMMA14);
+                    			    		adaptor.AddChild(root_0, COMMA14_tree);
 
-                    			    	PushFollow(FOLLOW_field_in_fields285);
+                    			    	PushFollow(FOLLOW_field_in_fields319);
                     			    	f = field();
                     			    	state.followingStackPointer--;
 
@@ -720,12 +763,12 @@ public partial class DhsqParser : Parser
                     			    break;
 
                     			default:
-                    			    goto loop3;
+                    			    goto loop4;
                     	    }
                     	} while (true);
 
-                    	loop3:
-                    		;	// Stops C# compiler whining that label 'loop3' has no statements
+                    	loop4:
+                    		;	// Stops C# compiler whining that label 'loop4' has no statements
 
 
                     }
@@ -764,7 +807,7 @@ public partial class DhsqParser : Parser
     };
 
     // $ANTLR start "field"
-    // ..\\Source\\Antlr.Grammars\\Dhsq.g:95:1: field returns [Field FieldValue] : p= TSTRING ( 'as' i= id )? ;
+    // ..\\Source\\Antlr.Grammars\\Dhsq.g:94:1: field returns [Field FieldValue] : p= TSTRING ( 'as' i= id )? ;
     public DhsqParser.field_return field() // throws RecognitionException [1]
     {   
         DhsqParser.field_return retval = new DhsqParser.field_return();
@@ -773,46 +816,46 @@ public partial class DhsqParser : Parser
         CommonTree root_0 = null;
 
         IToken p = null;
-        IToken string_literal13 = null;
+        IToken string_literal15 = null;
         DhsqParser.id_return i = default(DhsqParser.id_return);
 
 
         CommonTree p_tree=null;
-        CommonTree string_literal13_tree=null;
+        CommonTree string_literal15_tree=null;
 
 
         	retval.FieldValue =  new Field(); 
 
         try 
     	{
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:100:2: (p= TSTRING ( 'as' i= id )? )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:100:4: p= TSTRING ( 'as' i= id )?
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:99:2: (p= TSTRING ( 'as' i= id )? )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:99:4: p= TSTRING ( 'as' i= id )?
             {
             	root_0 = (CommonTree)adaptor.GetNilNode();
 
-            	p=(IToken)Match(input,TSTRING,FOLLOW_TSTRING_in_field317); 
+            	p=(IToken)Match(input,TSTRING,FOLLOW_TSTRING_in_field351); 
             		p_tree = (CommonTree)adaptor.Create(p);
             		adaptor.AddChild(root_0, p_tree);
 
             	 retval.FieldValue.XPath = p.Text; 
-            	// ..\\Source\\Antlr.Grammars\\Dhsq.g:100:46: ( 'as' i= id )?
-            	int alt5 = 2;
-            	int LA5_0 = input.LA(1);
+            	// ..\\Source\\Antlr.Grammars\\Dhsq.g:99:46: ( 'as' i= id )?
+            	int alt6 = 2;
+            	int LA6_0 = input.LA(1);
 
-            	if ( (LA5_0 == 32) )
+            	if ( (LA6_0 == 34) )
             	{
-            	    alt5 = 1;
+            	    alt6 = 1;
             	}
-            	switch (alt5) 
+            	switch (alt6) 
             	{
             	    case 1 :
-            	        // ..\\Source\\Antlr.Grammars\\Dhsq.g:100:47: 'as' i= id
+            	        // ..\\Source\\Antlr.Grammars\\Dhsq.g:99:47: 'as' i= id
             	        {
-            	        	string_literal13=(IToken)Match(input,32,FOLLOW_32_in_field322); 
-            	        		string_literal13_tree = (CommonTree)adaptor.Create(string_literal13);
-            	        		adaptor.AddChild(root_0, string_literal13_tree);
+            	        	string_literal15=(IToken)Match(input,34,FOLLOW_34_in_field356); 
+            	        		string_literal15_tree = (CommonTree)adaptor.Create(string_literal15);
+            	        		adaptor.AddChild(root_0, string_literal15_tree);
 
-            	        	PushFollow(FOLLOW_id_in_field326);
+            	        	PushFollow(FOLLOW_id_in_field360);
             	        	i = id();
             	        	state.followingStackPointer--;
 
@@ -859,7 +902,7 @@ public partial class DhsqParser : Parser
     };
 
     // $ANTLR start "expression"
-    // ..\\Source\\Antlr.Grammars\\Dhsq.g:103:1: expression returns [Expression ExpressionValue] : e1= logicExpression (o= logic e2= logicExpression )* ;
+    // ..\\Source\\Antlr.Grammars\\Dhsq.g:102:1: expression returns [Expression ExpressionValue] : e1= logicExpression (o= logic e2= logicExpression )* ;
     public DhsqParser.expression_return expression() // throws RecognitionException [1]
     {   
         DhsqParser.expression_return retval = new DhsqParser.expression_return();
@@ -877,12 +920,12 @@ public partial class DhsqParser : Parser
 
         try 
     	{
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:104:2: (e1= logicExpression (o= logic e2= logicExpression )* )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:104:4: e1= logicExpression (o= logic e2= logicExpression )*
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:103:2: (e1= logicExpression (o= logic e2= logicExpression )* )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:103:4: e1= logicExpression (o= logic e2= logicExpression )*
             {
             	root_0 = (CommonTree)adaptor.GetNilNode();
 
-            	PushFollow(FOLLOW_logicExpression_in_expression349);
+            	PushFollow(FOLLOW_logicExpression_in_expression383);
             	e1 = logicExpression();
             	state.followingStackPointer--;
 
@@ -890,29 +933,29 @@ public partial class DhsqParser : Parser
 
             				retval.ExpressionValue =  e1.ExpressionValue; 
             			
-            	// ..\\Source\\Antlr.Grammars\\Dhsq.g:108:3: (o= logic e2= logicExpression )*
+            	// ..\\Source\\Antlr.Grammars\\Dhsq.g:107:3: (o= logic e2= logicExpression )*
             	do 
             	{
-            	    int alt6 = 2;
-            	    int LA6_0 = input.LA(1);
+            	    int alt7 = 2;
+            	    int LA7_0 = input.LA(1);
 
-            	    if ( ((LA6_0 >= 35 && LA6_0 <= 36)) )
+            	    if ( ((LA7_0 >= 37 && LA7_0 <= 38)) )
             	    {
-            	        alt6 = 1;
+            	        alt7 = 1;
             	    }
 
 
-            	    switch (alt6) 
+            	    switch (alt7) 
             		{
             			case 1 :
-            			    // ..\\Source\\Antlr.Grammars\\Dhsq.g:109:4: o= logic e2= logicExpression
+            			    // ..\\Source\\Antlr.Grammars\\Dhsq.g:108:4: o= logic e2= logicExpression
             			    {
-            			    	PushFollow(FOLLOW_logic_in_expression365);
+            			    	PushFollow(FOLLOW_logic_in_expression399);
             			    	o = logic();
             			    	state.followingStackPointer--;
 
             			    	adaptor.AddChild(root_0, o.Tree);
-            			    	PushFollow(FOLLOW_logicExpression_in_expression369);
+            			    	PushFollow(FOLLOW_logicExpression_in_expression403);
             			    	e2 = logicExpression();
             			    	state.followingStackPointer--;
 
@@ -926,12 +969,12 @@ public partial class DhsqParser : Parser
             			    break;
 
             			default:
-            			    goto loop6;
+            			    goto loop7;
             	    }
             	} while (true);
 
-            	loop6:
-            		;	// Stops C# compiler whining that label 'loop6' has no statements
+            	loop7:
+            		;	// Stops C# compiler whining that label 'loop7' has no statements
 
 
             }
@@ -968,7 +1011,7 @@ public partial class DhsqParser : Parser
     };
 
     // $ANTLR start "logicExpression"
-    // ..\\Source\\Antlr.Grammars\\Dhsq.g:117:1: logicExpression returns [Expression ExpressionValue] : (l= left o= op r= right | '(' e= expression ')' );
+    // ..\\Source\\Antlr.Grammars\\Dhsq.g:116:1: logicExpression returns [Expression ExpressionValue] : (l= left o= op r= right | '(' e= expression ')' );
     public DhsqParser.logicExpression_return logicExpression() // throws RecognitionException [1]
     {   
         DhsqParser.logicExpression_return retval = new DhsqParser.logicExpression_return();
@@ -976,8 +1019,8 @@ public partial class DhsqParser : Parser
 
         CommonTree root_0 = null;
 
-        IToken char_literal14 = null;
-        IToken char_literal15 = null;
+        IToken char_literal16 = null;
+        IToken char_literal17 = null;
         DhsqParser.left_return l = default(DhsqParser.left_return);
 
         DhsqParser.op_return o = default(DhsqParser.op_return);
@@ -987,48 +1030,48 @@ public partial class DhsqParser : Parser
         DhsqParser.expression_return e = default(DhsqParser.expression_return);
 
 
-        CommonTree char_literal14_tree=null;
-        CommonTree char_literal15_tree=null;
+        CommonTree char_literal16_tree=null;
+        CommonTree char_literal17_tree=null;
 
         try 
     	{
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:118:2: (l= left o= op r= right | '(' e= expression ')' )
-            int alt7 = 2;
-            int LA7_0 = input.LA(1);
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:117:2: (l= left o= op r= right | '(' e= expression ')' )
+            int alt8 = 2;
+            int LA8_0 = input.LA(1);
 
-            if ( (LA7_0 == TSTRING || LA7_0 == ID) )
+            if ( (LA8_0 == TSTRING || LA8_0 == ID) )
             {
-                alt7 = 1;
+                alt8 = 1;
             }
-            else if ( (LA7_0 == 33) )
+            else if ( (LA8_0 == 35) )
             {
-                alt7 = 2;
+                alt8 = 2;
             }
             else 
             {
-                NoViableAltException nvae_d7s0 =
-                    new NoViableAltException("", 7, 0, input);
+                NoViableAltException nvae_d8s0 =
+                    new NoViableAltException("", 8, 0, input);
 
-                throw nvae_d7s0;
+                throw nvae_d8s0;
             }
-            switch (alt7) 
+            switch (alt8) 
             {
                 case 1 :
-                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:118:4: l= left o= op r= right
+                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:117:4: l= left o= op r= right
                     {
                     	root_0 = (CommonTree)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_left_in_logicExpression398);
+                    	PushFollow(FOLLOW_left_in_logicExpression432);
                     	l = left();
                     	state.followingStackPointer--;
 
                     	adaptor.AddChild(root_0, l.Tree);
-                    	PushFollow(FOLLOW_op_in_logicExpression402);
+                    	PushFollow(FOLLOW_op_in_logicExpression436);
                     	o = op();
                     	state.followingStackPointer--;
 
                     	adaptor.AddChild(root_0, o.Tree);
-                    	PushFollow(FOLLOW_right_in_logicExpression406);
+                    	PushFollow(FOLLOW_right_in_logicExpression440);
                     	r = right();
                     	state.followingStackPointer--;
 
@@ -1041,23 +1084,23 @@ public partial class DhsqParser : Parser
                     }
                     break;
                 case 2 :
-                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:123:4: '(' e= expression ')'
+                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:122:4: '(' e= expression ')'
                     {
                     	root_0 = (CommonTree)adaptor.GetNilNode();
 
-                    	char_literal14=(IToken)Match(input,33,FOLLOW_33_in_logicExpression415); 
-                    		char_literal14_tree = (CommonTree)adaptor.Create(char_literal14);
-                    		adaptor.AddChild(root_0, char_literal14_tree);
+                    	char_literal16=(IToken)Match(input,35,FOLLOW_35_in_logicExpression449); 
+                    		char_literal16_tree = (CommonTree)adaptor.Create(char_literal16);
+                    		adaptor.AddChild(root_0, char_literal16_tree);
 
-                    	PushFollow(FOLLOW_expression_in_logicExpression419);
+                    	PushFollow(FOLLOW_expression_in_logicExpression453);
                     	e = expression();
                     	state.followingStackPointer--;
 
                     	adaptor.AddChild(root_0, e.Tree);
                     	 retval.ExpressionValue =  e.ExpressionValue; 
-                    	char_literal15=(IToken)Match(input,34,FOLLOW_34_in_logicExpression423); 
-                    		char_literal15_tree = (CommonTree)adaptor.Create(char_literal15);
-                    		adaptor.AddChild(root_0, char_literal15_tree);
+                    	char_literal17=(IToken)Match(input,36,FOLLOW_36_in_logicExpression457); 
+                    		char_literal17_tree = (CommonTree)adaptor.Create(char_literal17);
+                    		adaptor.AddChild(root_0, char_literal17_tree);
 
 
                     }
@@ -1096,7 +1139,7 @@ public partial class DhsqParser : Parser
     };
 
     // $ANTLR start "left"
-    // ..\\Source\\Antlr.Grammars\\Dhsq.g:126:1: left returns [IVisitableNode Node] : (s= TSTRING | i= id );
+    // ..\\Source\\Antlr.Grammars\\Dhsq.g:125:1: left returns [IVisitableNode Node] : (s= TSTRING | i= id );
     public DhsqParser.left_return left() // throws RecognitionException [1]
     {   
         DhsqParser.left_return retval = new DhsqParser.left_return();
@@ -1112,33 +1155,33 @@ public partial class DhsqParser : Parser
 
         try 
     	{
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:127:2: (s= TSTRING | i= id )
-            int alt8 = 2;
-            int LA8_0 = input.LA(1);
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:126:2: (s= TSTRING | i= id )
+            int alt9 = 2;
+            int LA9_0 = input.LA(1);
 
-            if ( (LA8_0 == TSTRING) )
+            if ( (LA9_0 == TSTRING) )
             {
-                alt8 = 1;
+                alt9 = 1;
             }
-            else if ( (LA8_0 == ID) )
+            else if ( (LA9_0 == ID) )
             {
-                alt8 = 2;
+                alt9 = 2;
             }
             else 
             {
-                NoViableAltException nvae_d8s0 =
-                    new NoViableAltException("", 8, 0, input);
+                NoViableAltException nvae_d9s0 =
+                    new NoViableAltException("", 9, 0, input);
 
-                throw nvae_d8s0;
+                throw nvae_d9s0;
             }
-            switch (alt8) 
+            switch (alt9) 
             {
                 case 1 :
-                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:127:4: s= TSTRING
+                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:126:4: s= TSTRING
                     {
                     	root_0 = (CommonTree)adaptor.GetNilNode();
 
-                    	s=(IToken)Match(input,TSTRING,FOLLOW_TSTRING_in_left441); 
+                    	s=(IToken)Match(input,TSTRING,FOLLOW_TSTRING_in_left475); 
                     		s_tree = (CommonTree)adaptor.Create(s);
                     		adaptor.AddChild(root_0, s_tree);
 
@@ -1147,11 +1190,11 @@ public partial class DhsqParser : Parser
                     }
                     break;
                 case 2 :
-                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:128:4: i= id
+                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:127:4: i= id
                     {
                     	root_0 = (CommonTree)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_id_in_left450);
+                    	PushFollow(FOLLOW_id_in_left484);
                     	i = id();
                     	state.followingStackPointer--;
 
@@ -1194,7 +1237,7 @@ public partial class DhsqParser : Parser
     };
 
     // $ANTLR start "logic"
-    // ..\\Source\\Antlr.Grammars\\Dhsq.g:131:1: logic returns [LogicOperators Operator] : ( 'and' | 'or' );
+    // ..\\Source\\Antlr.Grammars\\Dhsq.g:130:1: logic returns [LogicOperators Operator] : ( 'and' | 'or' );
     public DhsqParser.logic_return logic() // throws RecognitionException [1]
     {   
         DhsqParser.logic_return retval = new DhsqParser.logic_return();
@@ -1202,56 +1245,56 @@ public partial class DhsqParser : Parser
 
         CommonTree root_0 = null;
 
-        IToken string_literal16 = null;
-        IToken string_literal17 = null;
+        IToken string_literal18 = null;
+        IToken string_literal19 = null;
 
-        CommonTree string_literal16_tree=null;
-        CommonTree string_literal17_tree=null;
+        CommonTree string_literal18_tree=null;
+        CommonTree string_literal19_tree=null;
 
         try 
     	{
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:132:2: ( 'and' | 'or' )
-            int alt9 = 2;
-            int LA9_0 = input.LA(1);
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:131:2: ( 'and' | 'or' )
+            int alt10 = 2;
+            int LA10_0 = input.LA(1);
 
-            if ( (LA9_0 == 35) )
+            if ( (LA10_0 == 37) )
             {
-                alt9 = 1;
+                alt10 = 1;
             }
-            else if ( (LA9_0 == 36) )
+            else if ( (LA10_0 == 38) )
             {
-                alt9 = 2;
+                alt10 = 2;
             }
             else 
             {
-                NoViableAltException nvae_d9s0 =
-                    new NoViableAltException("", 9, 0, input);
+                NoViableAltException nvae_d10s0 =
+                    new NoViableAltException("", 10, 0, input);
 
-                throw nvae_d9s0;
+                throw nvae_d10s0;
             }
-            switch (alt9) 
+            switch (alt10) 
             {
                 case 1 :
-                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:132:4: 'and'
+                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:131:4: 'and'
                     {
                     	root_0 = (CommonTree)adaptor.GetNilNode();
 
-                    	string_literal16=(IToken)Match(input,35,FOLLOW_35_in_logic472); 
-                    		string_literal16_tree = (CommonTree)adaptor.Create(string_literal16);
-                    		adaptor.AddChild(root_0, string_literal16_tree);
+                    	string_literal18=(IToken)Match(input,37,FOLLOW_37_in_logic506); 
+                    		string_literal18_tree = (CommonTree)adaptor.Create(string_literal18);
+                    		adaptor.AddChild(root_0, string_literal18_tree);
 
                     	 retval.Operator =  LogicOperators.And; 
 
                     }
                     break;
                 case 2 :
-                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:133:4: 'or'
+                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:132:4: 'or'
                     {
                     	root_0 = (CommonTree)adaptor.GetNilNode();
 
-                    	string_literal17=(IToken)Match(input,36,FOLLOW_36_in_logic479); 
-                    		string_literal17_tree = (CommonTree)adaptor.Create(string_literal17);
-                    		adaptor.AddChild(root_0, string_literal17_tree);
+                    	string_literal19=(IToken)Match(input,38,FOLLOW_38_in_logic513); 
+                    		string_literal19_tree = (CommonTree)adaptor.Create(string_literal19);
+                    		adaptor.AddChild(root_0, string_literal19_tree);
 
                     	 retval.Operator =  LogicOperators.Or; 
 
@@ -1291,7 +1334,7 @@ public partial class DhsqParser : Parser
     };
 
     // $ANTLR start "right"
-    // ..\\Source\\Antlr.Grammars\\Dhsq.g:136:1: right returns [Value Node] : (s= TSTRING | i= INT );
+    // ..\\Source\\Antlr.Grammars\\Dhsq.g:135:1: right returns [Value Node] : (s= TSTRING | i= INT );
     public DhsqParser.right_return right() // throws RecognitionException [1]
     {   
         DhsqParser.right_return retval = new DhsqParser.right_return();
@@ -1307,33 +1350,33 @@ public partial class DhsqParser : Parser
 
         try 
     	{
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:137:2: (s= TSTRING | i= INT )
-            int alt10 = 2;
-            int LA10_0 = input.LA(1);
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:136:2: (s= TSTRING | i= INT )
+            int alt11 = 2;
+            int LA11_0 = input.LA(1);
 
-            if ( (LA10_0 == TSTRING) )
+            if ( (LA11_0 == TSTRING) )
             {
-                alt10 = 1;
+                alt11 = 1;
             }
-            else if ( (LA10_0 == INT) )
+            else if ( (LA11_0 == INT) )
             {
-                alt10 = 2;
+                alt11 = 2;
             }
             else 
             {
-                NoViableAltException nvae_d10s0 =
-                    new NoViableAltException("", 10, 0, input);
+                NoViableAltException nvae_d11s0 =
+                    new NoViableAltException("", 11, 0, input);
 
-                throw nvae_d10s0;
+                throw nvae_d11s0;
             }
-            switch (alt10) 
+            switch (alt11) 
             {
                 case 1 :
-                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:137:4: s= TSTRING
+                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:136:4: s= TSTRING
                     {
                     	root_0 = (CommonTree)adaptor.GetNilNode();
 
-                    	s=(IToken)Match(input,TSTRING,FOLLOW_TSTRING_in_right500); 
+                    	s=(IToken)Match(input,TSTRING,FOLLOW_TSTRING_in_right534); 
                     		s_tree = (CommonTree)adaptor.Create(s);
                     		adaptor.AddChild(root_0, s_tree);
 
@@ -1342,11 +1385,11 @@ public partial class DhsqParser : Parser
                     }
                     break;
                 case 2 :
-                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:138:4: i= INT
+                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:137:4: i= INT
                     {
                     	root_0 = (CommonTree)adaptor.GetNilNode();
 
-                    	i=(IToken)Match(input,INT,FOLLOW_INT_in_right509); 
+                    	i=(IToken)Match(input,INT,FOLLOW_INT_in_right543); 
                     		i_tree = (CommonTree)adaptor.Create(i);
                     		adaptor.AddChild(root_0, i_tree);
 
@@ -1376,6 +1419,114 @@ public partial class DhsqParser : Parser
     }
     // $ANTLR end "right"
 
+    public class orders_return : ParserRuleReturnScope
+    {
+        public List<Identifier> IdentifiersValue;
+        private CommonTree tree;
+        override public object Tree
+        {
+        	get { return tree; }
+        	set { tree = (CommonTree) value; }
+        }
+    };
+
+    // $ANTLR start "orders"
+    // ..\\Source\\Antlr.Grammars\\Dhsq.g:140:1: orders returns [List<Identifier> IdentifiersValue] : i= id ( COMMA i= id )* ;
+    public DhsqParser.orders_return orders() // throws RecognitionException [1]
+    {   
+        DhsqParser.orders_return retval = new DhsqParser.orders_return();
+        retval.Start = input.LT(1);
+
+        CommonTree root_0 = null;
+
+        IToken COMMA20 = null;
+        DhsqParser.id_return i = default(DhsqParser.id_return);
+
+
+        CommonTree COMMA20_tree=null;
+
+
+        	retval.IdentifiersValue =  new List<Identifier>(); 
+
+        try 
+    	{
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:145:2: (i= id ( COMMA i= id )* )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:145:4: i= id ( COMMA i= id )*
+            {
+            	root_0 = (CommonTree)adaptor.GetNilNode();
+
+            	PushFollow(FOLLOW_id_in_orders574);
+            	i = id();
+            	state.followingStackPointer--;
+
+            	adaptor.AddChild(root_0, i.Tree);
+            	 
+            				retval.IdentifiersValue.Add(i.Id); 
+            			
+            	// ..\\Source\\Antlr.Grammars\\Dhsq.g:149:3: ( COMMA i= id )*
+            	do 
+            	{
+            	    int alt12 = 2;
+            	    int LA12_0 = input.LA(1);
+
+            	    if ( (LA12_0 == COMMA) )
+            	    {
+            	        alt12 = 1;
+            	    }
+
+
+            	    switch (alt12) 
+            		{
+            			case 1 :
+            			    // ..\\Source\\Antlr.Grammars\\Dhsq.g:149:4: COMMA i= id
+            			    {
+            			    	COMMA20=(IToken)Match(input,COMMA,FOLLOW_COMMA_in_orders583); 
+            			    		COMMA20_tree = (CommonTree)adaptor.Create(COMMA20);
+            			    		adaptor.AddChild(root_0, COMMA20_tree);
+
+            			    	PushFollow(FOLLOW_id_in_orders589);
+            			    	i = id();
+            			    	state.followingStackPointer--;
+
+            			    	adaptor.AddChild(root_0, i.Tree);
+
+            			    				retval.IdentifiersValue.Add(i.Id);
+            			    			
+
+            			    }
+            			    break;
+
+            			default:
+            			    goto loop12;
+            	    }
+            	} while (true);
+
+            	loop12:
+            		;	// Stops C# compiler whining that label 'loop12' has no statements
+
+
+            }
+
+            retval.Stop = input.LT(-1);
+
+            	retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+            	adaptor.SetTokenBoundaries(retval.Tree, (IToken) retval.Start, (IToken) retval.Stop);
+        }
+        catch (RecognitionException re) 
+    	{
+            ReportError(re);
+            Recover(input,re);
+    	// Conversion of the second argument necessary, but harmless
+    	retval.Tree = (CommonTree)adaptor.ErrorNode(input, (IToken) retval.Start, input.LT(-1), re);
+
+        }
+        finally 
+    	{
+        }
+        return retval;
+    }
+    // $ANTLR end "orders"
+
     public class op_return : ParserRuleReturnScope
     {
         public ComparationOperators Operator;
@@ -1388,7 +1539,7 @@ public partial class DhsqParser : Parser
     };
 
     // $ANTLR start "op"
-    // ..\\Source\\Antlr.Grammars\\Dhsq.g:141:1: op returns [ComparationOperators Operator] : ( '=' | '<' | '>' | '!=' | '<=' | '=>' | 'like' );
+    // ..\\Source\\Antlr.Grammars\\Dhsq.g:155:1: op returns [ComparationOperators Operator] : ( '=' | '<' | '>' | '!=' | '<=' | '=>' | 'like' );
     public DhsqParser.op_return op() // throws RecognitionException [1]
     {   
         DhsqParser.op_return retval = new DhsqParser.op_return();
@@ -1396,158 +1547,158 @@ public partial class DhsqParser : Parser
 
         CommonTree root_0 = null;
 
-        IToken char_literal18 = null;
-        IToken char_literal19 = null;
-        IToken char_literal20 = null;
-        IToken string_literal21 = null;
-        IToken string_literal22 = null;
-        IToken string_literal23 = null;
+        IToken char_literal21 = null;
+        IToken char_literal22 = null;
+        IToken char_literal23 = null;
         IToken string_literal24 = null;
+        IToken string_literal25 = null;
+        IToken string_literal26 = null;
+        IToken string_literal27 = null;
 
-        CommonTree char_literal18_tree=null;
-        CommonTree char_literal19_tree=null;
-        CommonTree char_literal20_tree=null;
-        CommonTree string_literal21_tree=null;
-        CommonTree string_literal22_tree=null;
-        CommonTree string_literal23_tree=null;
+        CommonTree char_literal21_tree=null;
+        CommonTree char_literal22_tree=null;
+        CommonTree char_literal23_tree=null;
         CommonTree string_literal24_tree=null;
+        CommonTree string_literal25_tree=null;
+        CommonTree string_literal26_tree=null;
+        CommonTree string_literal27_tree=null;
 
         try 
     	{
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:142:2: ( '=' | '<' | '>' | '!=' | '<=' | '=>' | 'like' )
-            int alt11 = 7;
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:156:2: ( '=' | '<' | '>' | '!=' | '<=' | '=>' | 'like' )
+            int alt13 = 7;
             switch ( input.LA(1) ) 
             {
-            case 37:
-            	{
-                alt11 = 1;
-                }
-                break;
-            case 38:
-            	{
-                alt11 = 2;
-                }
-                break;
             case 39:
             	{
-                alt11 = 3;
+                alt13 = 1;
                 }
                 break;
             case 40:
             	{
-                alt11 = 4;
+                alt13 = 2;
                 }
                 break;
             case 41:
             	{
-                alt11 = 5;
+                alt13 = 3;
                 }
                 break;
             case 42:
             	{
-                alt11 = 6;
+                alt13 = 4;
                 }
                 break;
             case 43:
             	{
-                alt11 = 7;
+                alt13 = 5;
+                }
+                break;
+            case 44:
+            	{
+                alt13 = 6;
+                }
+                break;
+            case 45:
+            	{
+                alt13 = 7;
                 }
                 break;
             	default:
-            	    NoViableAltException nvae_d11s0 =
-            	        new NoViableAltException("", 11, 0, input);
+            	    NoViableAltException nvae_d13s0 =
+            	        new NoViableAltException("", 13, 0, input);
 
-            	    throw nvae_d11s0;
+            	    throw nvae_d13s0;
             }
 
-            switch (alt11) 
+            switch (alt13) 
             {
                 case 1 :
-                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:142:4: '='
+                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:156:4: '='
                     {
                     	root_0 = (CommonTree)adaptor.GetNilNode();
 
-                    	char_literal18=(IToken)Match(input,37,FOLLOW_37_in_op531); 
-                    		char_literal18_tree = (CommonTree)adaptor.Create(char_literal18);
-                    		adaptor.AddChild(root_0, char_literal18_tree);
+                    	char_literal21=(IToken)Match(input,39,FOLLOW_39_in_op614); 
+                    		char_literal21_tree = (CommonTree)adaptor.Create(char_literal21);
+                    		adaptor.AddChild(root_0, char_literal21_tree);
 
                     	 retval.Operator =  ComparationOperators.EqualTo; 
 
                     }
                     break;
                 case 2 :
-                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:143:4: '<'
+                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:157:4: '<'
                     {
                     	root_0 = (CommonTree)adaptor.GetNilNode();
 
-                    	char_literal19=(IToken)Match(input,38,FOLLOW_38_in_op539); 
-                    		char_literal19_tree = (CommonTree)adaptor.Create(char_literal19);
-                    		adaptor.AddChild(root_0, char_literal19_tree);
+                    	char_literal22=(IToken)Match(input,40,FOLLOW_40_in_op622); 
+                    		char_literal22_tree = (CommonTree)adaptor.Create(char_literal22);
+                    		adaptor.AddChild(root_0, char_literal22_tree);
 
                     	 retval.Operator =  ComparationOperators.LessThan; 
 
                     }
                     break;
                 case 3 :
-                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:144:4: '>'
+                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:158:4: '>'
                     {
                     	root_0 = (CommonTree)adaptor.GetNilNode();
 
-                    	char_literal20=(IToken)Match(input,39,FOLLOW_39_in_op547); 
-                    		char_literal20_tree = (CommonTree)adaptor.Create(char_literal20);
-                    		adaptor.AddChild(root_0, char_literal20_tree);
+                    	char_literal23=(IToken)Match(input,41,FOLLOW_41_in_op630); 
+                    		char_literal23_tree = (CommonTree)adaptor.Create(char_literal23);
+                    		adaptor.AddChild(root_0, char_literal23_tree);
 
                     	 retval.Operator =  ComparationOperators.GraterThan; 
 
                     }
                     break;
                 case 4 :
-                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:145:4: '!='
+                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:159:4: '!='
                     {
                     	root_0 = (CommonTree)adaptor.GetNilNode();
 
-                    	string_literal21=(IToken)Match(input,40,FOLLOW_40_in_op555); 
-                    		string_literal21_tree = (CommonTree)adaptor.Create(string_literal21);
-                    		adaptor.AddChild(root_0, string_literal21_tree);
+                    	string_literal24=(IToken)Match(input,42,FOLLOW_42_in_op638); 
+                    		string_literal24_tree = (CommonTree)adaptor.Create(string_literal24);
+                    		adaptor.AddChild(root_0, string_literal24_tree);
 
                     	 retval.Operator =  ComparationOperators.NotEqual; 
 
                     }
                     break;
                 case 5 :
-                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:146:4: '<='
+                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:160:4: '<='
                     {
                     	root_0 = (CommonTree)adaptor.GetNilNode();
 
-                    	string_literal22=(IToken)Match(input,41,FOLLOW_41_in_op562); 
-                    		string_literal22_tree = (CommonTree)adaptor.Create(string_literal22);
-                    		adaptor.AddChild(root_0, string_literal22_tree);
+                    	string_literal25=(IToken)Match(input,43,FOLLOW_43_in_op645); 
+                    		string_literal25_tree = (CommonTree)adaptor.Create(string_literal25);
+                    		adaptor.AddChild(root_0, string_literal25_tree);
 
                     	 retval.Operator =  ComparationOperators.LessThanOrEqualTo; 
 
                     }
                     break;
                 case 6 :
-                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:147:4: '=>'
+                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:161:4: '=>'
                     {
                     	root_0 = (CommonTree)adaptor.GetNilNode();
 
-                    	string_literal23=(IToken)Match(input,42,FOLLOW_42_in_op569); 
-                    		string_literal23_tree = (CommonTree)adaptor.Create(string_literal23);
-                    		adaptor.AddChild(root_0, string_literal23_tree);
+                    	string_literal26=(IToken)Match(input,44,FOLLOW_44_in_op652); 
+                    		string_literal26_tree = (CommonTree)adaptor.Create(string_literal26);
+                    		adaptor.AddChild(root_0, string_literal26_tree);
 
                     	 retval.Operator =  ComparationOperators.GraterThanOrEqualTo; 
 
                     }
                     break;
                 case 7 :
-                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:148:4: 'like'
+                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:162:4: 'like'
                     {
                     	root_0 = (CommonTree)adaptor.GetNilNode();
 
-                    	string_literal24=(IToken)Match(input,43,FOLLOW_43_in_op576); 
-                    		string_literal24_tree = (CommonTree)adaptor.Create(string_literal24);
-                    		adaptor.AddChild(root_0, string_literal24_tree);
+                    	string_literal27=(IToken)Match(input,45,FOLLOW_45_in_op659); 
+                    		string_literal27_tree = (CommonTree)adaptor.Create(string_literal27);
+                    		adaptor.AddChild(root_0, string_literal27_tree);
 
                     	 retval.Operator =  ComparationOperators.Like; 
 
@@ -1587,7 +1738,7 @@ public partial class DhsqParser : Parser
     };
 
     // $ANTLR start "id"
-    // ..\\Source\\Antlr.Grammars\\Dhsq.g:151:1: id returns [Identifier Id] : i= ID ;
+    // ..\\Source\\Antlr.Grammars\\Dhsq.g:165:1: id returns [Identifier Id] : i= ID ;
     public DhsqParser.id_return id() // throws RecognitionException [1]
     {   
         DhsqParser.id_return retval = new DhsqParser.id_return();
@@ -1601,12 +1752,12 @@ public partial class DhsqParser : Parser
 
         try 
     	{
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:152:2: (i= ID )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:152:4: i= ID
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:166:2: (i= ID )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:166:4: i= ID
             {
             	root_0 = (CommonTree)adaptor.GetNilNode();
 
-            	i=(IToken)Match(input,ID,FOLLOW_ID_in_id596); 
+            	i=(IToken)Match(input,ID,FOLLOW_ID_in_id679); 
             		i_tree = (CommonTree)adaptor.Create(i);
             		adaptor.AddChild(root_0, i_tree);
 
@@ -1645,7 +1796,7 @@ public partial class DhsqParser : Parser
     };
 
     // $ANTLR start "qualifiedid"
-    // ..\\Source\\Antlr.Grammars\\Dhsq.g:155:1: qualifiedid : ID ( DOT ID )* ;
+    // ..\\Source\\Antlr.Grammars\\Dhsq.g:169:1: qualifiedid : ID ( DOT ID )* ;
     public DhsqParser.qualifiedid_return qualifiedid() // throws RecognitionException [1]
     {   
         DhsqParser.qualifiedid_return retval = new DhsqParser.qualifiedid_return();
@@ -1653,61 +1804,61 @@ public partial class DhsqParser : Parser
 
         CommonTree root_0 = null;
 
-        IToken ID25 = null;
-        IToken DOT26 = null;
-        IToken ID27 = null;
+        IToken ID28 = null;
+        IToken DOT29 = null;
+        IToken ID30 = null;
 
-        CommonTree ID25_tree=null;
-        CommonTree DOT26_tree=null;
-        CommonTree ID27_tree=null;
+        CommonTree ID28_tree=null;
+        CommonTree DOT29_tree=null;
+        CommonTree ID30_tree=null;
 
         try 
     	{
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:156:2: ( ID ( DOT ID )* )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:156:4: ID ( DOT ID )*
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:170:2: ( ID ( DOT ID )* )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:170:4: ID ( DOT ID )*
             {
             	root_0 = (CommonTree)adaptor.GetNilNode();
 
-            	ID25=(IToken)Match(input,ID,FOLLOW_ID_in_qualifiedid609); 
-            		ID25_tree = (CommonTree)adaptor.Create(ID25);
-            		adaptor.AddChild(root_0, ID25_tree);
+            	ID28=(IToken)Match(input,ID,FOLLOW_ID_in_qualifiedid692); 
+            		ID28_tree = (CommonTree)adaptor.Create(ID28);
+            		adaptor.AddChild(root_0, ID28_tree);
 
-            	// ..\\Source\\Antlr.Grammars\\Dhsq.g:156:7: ( DOT ID )*
+            	// ..\\Source\\Antlr.Grammars\\Dhsq.g:170:7: ( DOT ID )*
             	do 
             	{
-            	    int alt12 = 2;
-            	    int LA12_0 = input.LA(1);
+            	    int alt14 = 2;
+            	    int LA14_0 = input.LA(1);
 
-            	    if ( (LA12_0 == DOT) )
+            	    if ( (LA14_0 == DOT) )
             	    {
-            	        alt12 = 1;
+            	        alt14 = 1;
             	    }
 
 
-            	    switch (alt12) 
+            	    switch (alt14) 
             		{
             			case 1 :
-            			    // ..\\Source\\Antlr.Grammars\\Dhsq.g:156:8: DOT ID
+            			    // ..\\Source\\Antlr.Grammars\\Dhsq.g:170:8: DOT ID
             			    {
-            			    	DOT26=(IToken)Match(input,DOT,FOLLOW_DOT_in_qualifiedid612); 
-            			    		DOT26_tree = (CommonTree)adaptor.Create(DOT26);
-            			    		adaptor.AddChild(root_0, DOT26_tree);
+            			    	DOT29=(IToken)Match(input,DOT,FOLLOW_DOT_in_qualifiedid695); 
+            			    		DOT29_tree = (CommonTree)adaptor.Create(DOT29);
+            			    		adaptor.AddChild(root_0, DOT29_tree);
 
-            			    	ID27=(IToken)Match(input,ID,FOLLOW_ID_in_qualifiedid614); 
-            			    		ID27_tree = (CommonTree)adaptor.Create(ID27);
-            			    		adaptor.AddChild(root_0, ID27_tree);
+            			    	ID30=(IToken)Match(input,ID,FOLLOW_ID_in_qualifiedid697); 
+            			    		ID30_tree = (CommonTree)adaptor.Create(ID30);
+            			    		adaptor.AddChild(root_0, ID30_tree);
 
 
             			    }
             			    break;
 
             			default:
-            			    goto loop12;
+            			    goto loop14;
             	    }
             	} while (true);
 
-            	loop12:
-            		;	// Stops C# compiler whining that label 'loop12' has no statements
+            	loop14:
+            		;	// Stops C# compiler whining that label 'loop14' has no statements
 
 
             }
@@ -1749,45 +1900,51 @@ public partial class DhsqParser : Parser
     public static readonly BitSet FOLLOW_25_in_delete150 = new BitSet(new ulong[]{0x0000000000000002UL});
     public static readonly BitSet FOLLOW_26_in_insert162 = new BitSet(new ulong[]{0x0000000000000002UL});
     public static readonly BitSet FOLLOW_27_in_update174 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_28_in_select196 = new BitSet(new ulong[]{0x0000000000001000UL});
-    public static readonly BitSet FOLLOW_id_in_select208 = new BitSet(new ulong[]{0x0000000020000000UL});
-    public static readonly BitSet FOLLOW_29_in_select217 = new BitSet(new ulong[]{0x0000000080000400UL});
-    public static readonly BitSet FOLLOW_fields_in_select223 = new BitSet(new ulong[]{0x0000000040000002UL});
-    public static readonly BitSet FOLLOW_30_in_select233 = new BitSet(new ulong[]{0x0000000200001400UL});
-    public static readonly BitSet FOLLOW_expression_in_select237 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_31_in_fields262 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_field_in_fields271 = new BitSet(new ulong[]{0x0000000000000202UL});
-    public static readonly BitSet FOLLOW_COMMA_in_fields281 = new BitSet(new ulong[]{0x0000000080000400UL});
-    public static readonly BitSet FOLLOW_field_in_fields285 = new BitSet(new ulong[]{0x0000000000000202UL});
-    public static readonly BitSet FOLLOW_TSTRING_in_field317 = new BitSet(new ulong[]{0x0000000100000002UL});
-    public static readonly BitSet FOLLOW_32_in_field322 = new BitSet(new ulong[]{0x0000000000001000UL});
-    public static readonly BitSet FOLLOW_id_in_field326 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_logicExpression_in_expression349 = new BitSet(new ulong[]{0x0000001800000002UL});
-    public static readonly BitSet FOLLOW_logic_in_expression365 = new BitSet(new ulong[]{0x0000000200001400UL});
-    public static readonly BitSet FOLLOW_logicExpression_in_expression369 = new BitSet(new ulong[]{0x0000001800000002UL});
-    public static readonly BitSet FOLLOW_left_in_logicExpression398 = new BitSet(new ulong[]{0x00000FE000000000UL});
-    public static readonly BitSet FOLLOW_op_in_logicExpression402 = new BitSet(new ulong[]{0x0000000000000C00UL});
-    public static readonly BitSet FOLLOW_right_in_logicExpression406 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_33_in_logicExpression415 = new BitSet(new ulong[]{0x0000000200001400UL});
-    public static readonly BitSet FOLLOW_expression_in_logicExpression419 = new BitSet(new ulong[]{0x0000000400000000UL});
-    public static readonly BitSet FOLLOW_34_in_logicExpression423 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_TSTRING_in_left441 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_id_in_left450 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_35_in_logic472 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_36_in_logic479 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_TSTRING_in_right500 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_INT_in_right509 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_37_in_op531 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_38_in_op539 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_39_in_op547 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_40_in_op555 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_41_in_op562 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_42_in_op569 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_43_in_op576 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_ID_in_id596 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_ID_in_qualifiedid609 = new BitSet(new ulong[]{0x0000000000002002UL});
-    public static readonly BitSet FOLLOW_DOT_in_qualifiedid612 = new BitSet(new ulong[]{0x0000000000001000UL});
-    public static readonly BitSet FOLLOW_ID_in_qualifiedid614 = new BitSet(new ulong[]{0x0000000000002002UL});
+    public static readonly BitSet FOLLOW_28_in_select190 = new BitSet(new ulong[]{0x0000000000001000UL});
+    public static readonly BitSet FOLLOW_id_in_select205 = new BitSet(new ulong[]{0x0000000020000000UL});
+    public static readonly BitSet FOLLOW_29_in_select216 = new BitSet(new ulong[]{0x0000000200000400UL});
+    public static readonly BitSet FOLLOW_fields_in_select220 = new BitSet(new ulong[]{0x00000000C0000002UL});
+    public static readonly BitSet FOLLOW_30_in_select235 = new BitSet(new ulong[]{0x0000000800001400UL});
+    public static readonly BitSet FOLLOW_expression_in_select245 = new BitSet(new ulong[]{0x0000000080000002UL});
+    public static readonly BitSet FOLLOW_31_in_select258 = new BitSet(new ulong[]{0x0000000100000000UL});
+    public static readonly BitSet FOLLOW_32_in_select260 = new BitSet(new ulong[]{0x0000000000001000UL});
+    public static readonly BitSet FOLLOW_orders_in_select270 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_33_in_fields296 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_field_in_fields305 = new BitSet(new ulong[]{0x0000000000000202UL});
+    public static readonly BitSet FOLLOW_COMMA_in_fields315 = new BitSet(new ulong[]{0x0000000200000400UL});
+    public static readonly BitSet FOLLOW_field_in_fields319 = new BitSet(new ulong[]{0x0000000000000202UL});
+    public static readonly BitSet FOLLOW_TSTRING_in_field351 = new BitSet(new ulong[]{0x0000000400000002UL});
+    public static readonly BitSet FOLLOW_34_in_field356 = new BitSet(new ulong[]{0x0000000000001000UL});
+    public static readonly BitSet FOLLOW_id_in_field360 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_logicExpression_in_expression383 = new BitSet(new ulong[]{0x0000006000000002UL});
+    public static readonly BitSet FOLLOW_logic_in_expression399 = new BitSet(new ulong[]{0x0000000800001400UL});
+    public static readonly BitSet FOLLOW_logicExpression_in_expression403 = new BitSet(new ulong[]{0x0000006000000002UL});
+    public static readonly BitSet FOLLOW_left_in_logicExpression432 = new BitSet(new ulong[]{0x00003F8000000000UL});
+    public static readonly BitSet FOLLOW_op_in_logicExpression436 = new BitSet(new ulong[]{0x0000000000000C00UL});
+    public static readonly BitSet FOLLOW_right_in_logicExpression440 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_35_in_logicExpression449 = new BitSet(new ulong[]{0x0000000800001400UL});
+    public static readonly BitSet FOLLOW_expression_in_logicExpression453 = new BitSet(new ulong[]{0x0000001000000000UL});
+    public static readonly BitSet FOLLOW_36_in_logicExpression457 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_TSTRING_in_left475 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_id_in_left484 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_37_in_logic506 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_38_in_logic513 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_TSTRING_in_right534 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_INT_in_right543 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_id_in_orders574 = new BitSet(new ulong[]{0x0000000000000202UL});
+    public static readonly BitSet FOLLOW_COMMA_in_orders583 = new BitSet(new ulong[]{0x0000000000001000UL});
+    public static readonly BitSet FOLLOW_id_in_orders589 = new BitSet(new ulong[]{0x0000000000000202UL});
+    public static readonly BitSet FOLLOW_39_in_op614 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_40_in_op622 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_41_in_op630 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_42_in_op638 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_43_in_op645 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_44_in_op652 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_45_in_op659 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_ID_in_id679 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_ID_in_qualifiedid692 = new BitSet(new ulong[]{0x0000000000002002UL});
+    public static readonly BitSet FOLLOW_DOT_in_qualifiedid695 = new BitSet(new ulong[]{0x0000000000001000UL});
+    public static readonly BitSet FOLLOW_ID_in_qualifiedid697 = new BitSet(new ulong[]{0x0000000000002002UL});
 
 }
 }

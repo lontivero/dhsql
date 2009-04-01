@@ -12,7 +12,7 @@
     <AssemblyName>Motorola.PublicSafety.Platform.DHStore.Compiler</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -82,12 +82,14 @@
     <Compile Include="Ast\LogicOperators.cs" />
     <Compile Include="Ast\LogicExpression.cs" />
     <Compile Include="Dhsqli.cs" />
+    <Compile Include="Ast\OrderBy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ast\SelectStatement.cs" />
     <Compile Include="Ast\Visitor.cs" />
     <Compile Include="Ast\TraceVisitor.cs" />
     <Compile Include="Ast\Value.cs" />
     <Compile Include="Ast\SimpleExpression.cs" />
+    <Compile Include="Ast\Where.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Antlr.Grammars\Dhsq.g" />

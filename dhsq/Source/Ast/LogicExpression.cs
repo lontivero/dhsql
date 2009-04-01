@@ -16,6 +16,11 @@ namespace Motorola.PublicSafety.Platform.DHStore.Compiler
 
         public override void Accept(AbstractVisitor visitor)
         {
+            if (visitor == null)
+            {
+                throw new ArgumentNullException("visitor");
+            }
+
             visitor.VisitLogicExpression(this);
         }
 

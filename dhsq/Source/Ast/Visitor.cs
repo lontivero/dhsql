@@ -18,6 +18,10 @@ namespace Motorola.PublicSafety.Platform.DHStore.Compiler
             {
                 node.Where.Accept(this);
             }
+            if (node.OrderBy != null)
+            {
+                node.OrderBy.Accept(this);
+            }
 
             return null;
         }
@@ -45,5 +49,18 @@ namespace Motorola.PublicSafety.Platform.DHStore.Compiler
         }
 
         public abstract void VisitValue(Value value);
+
+        public virtual void VisitWhere(Where where)
+        {
+            where.Condition.Accept(this);
+        }
+
+        public virtual void VisitOrderBy(OrderBy orderBy)
+        {
+            foreach (var id in orderBy.Fields)
+            {
+                id.Accept(this);
+            }
+        }
     }
 }

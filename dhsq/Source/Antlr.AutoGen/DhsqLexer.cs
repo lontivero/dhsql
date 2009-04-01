@@ -1,4 +1,4 @@
-// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 ..\\Source\\Antlr.Grammars\\Dhsq.g 2009-03-31 01:32:02
+// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 ..\\Source\\Antlr.Grammars\\Dhsq.g 2009-04-01 02:27:29
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 168, 219
@@ -36,8 +36,10 @@ public partial class DhsqLexer : Lexer {
     public const int T__43 = 43;
     public const int T__40 = 40;
     public const int T__41 = 41;
-    public const int INT = 11;
+    public const int T__44 = 44;
+    public const int T__45 = 45;
     public const int SEMICOLON = 23;
+    public const int INT = 11;
     public const int FIELDS = 5;
     public const int SQUOTE = 14;
     public const int CONDITIONS = 7;
@@ -230,10 +232,11 @@ public partial class DhsqLexer : Lexer {
     		{
             int _type = T__31;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:15:7: ( '*' )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:15:9: '*'
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:15:7: ( 'order' )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:15:9: 'order'
             {
-            	Match('*'); 
+            	Match("order"); 
+
 
             }
 
@@ -253,10 +256,10 @@ public partial class DhsqLexer : Lexer {
     		{
             int _type = T__32;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:16:7: ( 'as' )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:16:9: 'as'
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:16:7: ( 'by' )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:16:9: 'by'
             {
-            	Match("as"); 
+            	Match("by"); 
 
 
             }
@@ -277,10 +280,10 @@ public partial class DhsqLexer : Lexer {
     		{
             int _type = T__33;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:17:7: ( '(' )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:17:9: '('
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:17:7: ( '*' )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:17:9: '*'
             {
-            	Match('('); 
+            	Match('*'); 
 
             }
 
@@ -300,10 +303,11 @@ public partial class DhsqLexer : Lexer {
     		{
             int _type = T__34;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:18:7: ( ')' )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:18:9: ')'
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:18:7: ( 'as' )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:18:9: 'as'
             {
-            	Match(')'); 
+            	Match("as"); 
+
 
             }
 
@@ -323,11 +327,10 @@ public partial class DhsqLexer : Lexer {
     		{
             int _type = T__35;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:19:7: ( 'and' )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:19:9: 'and'
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:19:7: ( '(' )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:19:9: '('
             {
-            	Match("and"); 
-
+            	Match('('); 
 
             }
 
@@ -347,11 +350,10 @@ public partial class DhsqLexer : Lexer {
     		{
             int _type = T__36;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:20:7: ( 'or' )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:20:9: 'or'
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:20:7: ( ')' )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:20:9: ')'
             {
-            	Match("or"); 
-
+            	Match(')'); 
 
             }
 
@@ -371,10 +373,11 @@ public partial class DhsqLexer : Lexer {
     		{
             int _type = T__37;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:21:7: ( '=' )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:21:9: '='
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:21:7: ( 'and' )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:21:9: 'and'
             {
-            	Match('='); 
+            	Match("and"); 
+
 
             }
 
@@ -394,10 +397,11 @@ public partial class DhsqLexer : Lexer {
     		{
             int _type = T__38;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:22:7: ( '<' )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:22:9: '<'
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:22:7: ( 'or' )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:22:9: 'or'
             {
-            	Match('<'); 
+            	Match("or"); 
+
 
             }
 
@@ -417,10 +421,10 @@ public partial class DhsqLexer : Lexer {
     		{
             int _type = T__39;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:23:7: ( '>' )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:23:9: '>'
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:23:7: ( '=' )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:23:9: '='
             {
-            	Match('>'); 
+            	Match('='); 
 
             }
 
@@ -440,11 +444,10 @@ public partial class DhsqLexer : Lexer {
     		{
             int _type = T__40;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:24:7: ( '!=' )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:24:9: '!='
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:24:7: ( '<' )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:24:9: '<'
             {
-            	Match("!="); 
-
+            	Match('<'); 
 
             }
 
@@ -464,11 +467,10 @@ public partial class DhsqLexer : Lexer {
     		{
             int _type = T__41;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:25:7: ( '<=' )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:25:9: '<='
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:25:7: ( '>' )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:25:9: '>'
             {
-            	Match("<="); 
-
+            	Match('>'); 
 
             }
 
@@ -488,10 +490,10 @@ public partial class DhsqLexer : Lexer {
     		{
             int _type = T__42;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:26:7: ( '=>' )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:26:9: '=>'
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:26:7: ( '!=' )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:26:9: '!='
             {
-            	Match("=>"); 
+            	Match("!="); 
 
 
             }
@@ -512,10 +514,10 @@ public partial class DhsqLexer : Lexer {
     		{
             int _type = T__43;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:27:7: ( 'like' )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:27:9: 'like'
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:27:7: ( '<=' )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:27:9: '<='
             {
-            	Match("like"); 
+            	Match("<="); 
 
 
             }
@@ -529,6 +531,54 @@ public partial class DhsqLexer : Lexer {
     }
     // $ANTLR end "T__43"
 
+    // $ANTLR start "T__44"
+    public void mT__44() // throws RecognitionException [2]
+    {
+    		try
+    		{
+            int _type = T__44;
+    	int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:28:7: ( '=>' )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:28:9: '=>'
+            {
+            	Match("=>"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally 
+    	{
+        }
+    }
+    // $ANTLR end "T__44"
+
+    // $ANTLR start "T__45"
+    public void mT__45() // throws RecognitionException [2]
+    {
+    		try
+    		{
+            int _type = T__45;
+    	int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:29:7: ( 'like' )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:29:9: 'like'
+            {
+            	Match("like"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally 
+    	{
+        }
+    }
+    // $ANTLR end "T__45"
+
     // $ANTLR start "TSTRING"
     public void mTSTRING() // throws RecognitionException [2]
     {
@@ -536,11 +586,11 @@ public partial class DhsqLexer : Lexer {
     		{
             int _type = TSTRING;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:162:5: ( SQUOTE (~ '\\'' )* SQUOTE )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:162:7: SQUOTE (~ '\\'' )* SQUOTE
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:176:5: ( SQUOTE (~ '\\'' )* SQUOTE )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:176:7: SQUOTE (~ '\\'' )* SQUOTE
             {
             	mSQUOTE(); 
-            	// ..\\Source\\Antlr.Grammars\\Dhsq.g:162:14: (~ '\\'' )*
+            	// ..\\Source\\Antlr.Grammars\\Dhsq.g:176:14: (~ '\\'' )*
             	do 
             	{
             	    int alt1 = 2;
@@ -555,7 +605,7 @@ public partial class DhsqLexer : Lexer {
             	    switch (alt1) 
             		{
             			case 1 :
-            			    // ..\\Source\\Antlr.Grammars\\Dhsq.g:162:15: ~ '\\''
+            			    // ..\\Source\\Antlr.Grammars\\Dhsq.g:176:15: ~ '\\''
             			    {
             			    	if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '&') || (input.LA(1) >= '(' && input.LA(1) <= '\uFFFF') ) 
             			    	{
@@ -600,8 +650,8 @@ public partial class DhsqLexer : Lexer {
     		{
             int _type = SQUOTE;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:167:2: ( '\\'' )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:167:4: '\\''
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:181:2: ( '\\'' )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:181:4: '\\''
             {
             	Match('\''); 
 
@@ -623,11 +673,11 @@ public partial class DhsqLexer : Lexer {
     		{
             int _type = ID;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:171:2: ( CHAR ( CHAR | DIGIT )* )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:171:4: CHAR ( CHAR | DIGIT )*
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:185:2: ( CHAR ( CHAR | DIGIT )* )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:185:4: CHAR ( CHAR | DIGIT )*
             {
             	mCHAR(); 
-            	// ..\\Source\\Antlr.Grammars\\Dhsq.g:171:8: ( CHAR | DIGIT )*
+            	// ..\\Source\\Antlr.Grammars\\Dhsq.g:185:8: ( CHAR | DIGIT )*
             	do 
             	{
             	    int alt2 = 2;
@@ -684,7 +734,7 @@ public partial class DhsqLexer : Lexer {
     {
     		try
     		{
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:177:2: ( LC | UC )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:191:2: ( LC | UC )
             // ..\\Source\\Antlr.Grammars\\Dhsq.g:
             {
             	if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z') || (input.LA(1) >= 'a' && input.LA(1) <= 'z') ) 
@@ -713,8 +763,8 @@ public partial class DhsqLexer : Lexer {
     {
     		try
     		{
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:182:2: ( 'a' .. 'z' )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:182:4: 'a' .. 'z'
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:196:2: ( 'a' .. 'z' )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:196:4: 'a' .. 'z'
             {
             	MatchRange('a','z'); 
 
@@ -732,8 +782,8 @@ public partial class DhsqLexer : Lexer {
     {
     		try
     		{
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:187:2: ( 'A' .. 'Z' )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:187:4: 'A' .. 'Z'
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:201:2: ( 'A' .. 'Z' )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:201:4: 'A' .. 'Z'
             {
             	MatchRange('A','Z'); 
 
@@ -753,7 +803,7 @@ public partial class DhsqLexer : Lexer {
     		{
             int _type = INT;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:193:2: ( '0' | ( '1' .. '9' ( DIGIT )* ) )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:207:2: ( '0' | ( '1' .. '9' ( DIGIT )* ) )
             int alt4 = 2;
             int LA4_0 = input.LA(1);
 
@@ -775,20 +825,20 @@ public partial class DhsqLexer : Lexer {
             switch (alt4) 
             {
                 case 1 :
-                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:193:4: '0'
+                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:207:4: '0'
                     {
                     	Match('0'); 
 
                     }
                     break;
                 case 2 :
-                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:193:8: ( '1' .. '9' ( DIGIT )* )
+                    // ..\\Source\\Antlr.Grammars\\Dhsq.g:207:8: ( '1' .. '9' ( DIGIT )* )
                     {
-                    	// ..\\Source\\Antlr.Grammars\\Dhsq.g:193:8: ( '1' .. '9' ( DIGIT )* )
-                    	// ..\\Source\\Antlr.Grammars\\Dhsq.g:193:9: '1' .. '9' ( DIGIT )*
+                    	// ..\\Source\\Antlr.Grammars\\Dhsq.g:207:8: ( '1' .. '9' ( DIGIT )* )
+                    	// ..\\Source\\Antlr.Grammars\\Dhsq.g:207:9: '1' .. '9' ( DIGIT )*
                     	{
                     		MatchRange('1','9'); 
-                    		// ..\\Source\\Antlr.Grammars\\Dhsq.g:193:18: ( DIGIT )*
+                    		// ..\\Source\\Antlr.Grammars\\Dhsq.g:207:18: ( DIGIT )*
                     		do 
                     		{
                     		    int alt3 = 2;
@@ -803,7 +853,7 @@ public partial class DhsqLexer : Lexer {
                     		    switch (alt3) 
                     			{
                     				case 1 :
-                    				    // ..\\Source\\Antlr.Grammars\\Dhsq.g:193:18: DIGIT
+                    				    // ..\\Source\\Antlr.Grammars\\Dhsq.g:207:18: DIGIT
                     				    {
                     				    	mDIGIT(); 
 
@@ -840,8 +890,8 @@ public partial class DhsqLexer : Lexer {
     {
     		try
     		{
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:198:2: ( '0' .. '9' )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:198:4: '0' .. '9'
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:212:2: ( '0' .. '9' )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:212:4: '0' .. '9'
             {
             	MatchRange('0','9'); 
 
@@ -861,10 +911,10 @@ public partial class DhsqLexer : Lexer {
     		{
             int _type = WS;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:202:2: ( ( '\\t' | ' ' | NEWLINE )+ )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:202:4: ( '\\t' | ' ' | NEWLINE )+
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:216:2: ( ( '\\t' | ' ' | NEWLINE )+ )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:216:4: ( '\\t' | ' ' | NEWLINE )+
             {
-            	// ..\\Source\\Antlr.Grammars\\Dhsq.g:202:4: ( '\\t' | ' ' | NEWLINE )+
+            	// ..\\Source\\Antlr.Grammars\\Dhsq.g:216:4: ( '\\t' | ' ' | NEWLINE )+
             	int cnt5 = 0;
             	do 
             	{
@@ -927,7 +977,7 @@ public partial class DhsqLexer : Lexer {
     {
     		try
     		{
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:207:2: ( '\\r' | '\\n' )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:221:2: ( '\\r' | '\\n' )
             // ..\\Source\\Antlr.Grammars\\Dhsq.g:
             {
             	if ( input.LA(1) == '\n' || input.LA(1) == '\r' ) 
@@ -958,12 +1008,12 @@ public partial class DhsqLexer : Lexer {
     		{
             int _type = COMMENT;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:211:2: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:211:4: '/*' ( options {greedy=false; } : . )* '*/'
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:225:2: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:225:4: '/*' ( options {greedy=false; } : . )* '*/'
             {
             	Match("/*"); 
 
-            	// ..\\Source\\Antlr.Grammars\\Dhsq.g:211:9: ( options {greedy=false; } : . )*
+            	// ..\\Source\\Antlr.Grammars\\Dhsq.g:225:9: ( options {greedy=false; } : . )*
             	do 
             	{
             	    int alt6 = 2;
@@ -993,7 +1043,7 @@ public partial class DhsqLexer : Lexer {
             	    switch (alt6) 
             		{
             			case 1 :
-            			    // ..\\Source\\Antlr.Grammars\\Dhsq.g:211:34: .
+            			    // ..\\Source\\Antlr.Grammars\\Dhsq.g:225:34: .
             			    {
             			    	MatchAny(); 
 
@@ -1030,12 +1080,12 @@ public partial class DhsqLexer : Lexer {
     		{
             int _type = LINECOMMENT;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:215:2: ( '//' (~ ( '\\r' | '\\n' ) )* NEWLINE )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:215:4: '//' (~ ( '\\r' | '\\n' ) )* NEWLINE
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:229:2: ( '//' (~ ( '\\r' | '\\n' ) )* NEWLINE )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:229:4: '//' (~ ( '\\r' | '\\n' ) )* NEWLINE
             {
             	Match("//"); 
 
-            	// ..\\Source\\Antlr.Grammars\\Dhsq.g:215:9: (~ ( '\\r' | '\\n' ) )*
+            	// ..\\Source\\Antlr.Grammars\\Dhsq.g:229:9: (~ ( '\\r' | '\\n' ) )*
             	do 
             	{
             	    int alt7 = 2;
@@ -1050,7 +1100,7 @@ public partial class DhsqLexer : Lexer {
             	    switch (alt7) 
             		{
             			case 1 :
-            			    // ..\\Source\\Antlr.Grammars\\Dhsq.g:215:9: ~ ( '\\r' | '\\n' )
+            			    // ..\\Source\\Antlr.Grammars\\Dhsq.g:229:9: ~ ( '\\r' | '\\n' )
             			    {
             			    	if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '\t') || (input.LA(1) >= '\u000B' && input.LA(1) <= '\f') || (input.LA(1) >= '\u000E' && input.LA(1) <= '\uFFFF') ) 
             			    	{
@@ -1096,8 +1146,8 @@ public partial class DhsqLexer : Lexer {
     		{
             int _type = DOT;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:219:2: ( '.' )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:219:4: '.'
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:233:2: ( '.' )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:233:4: '.'
             {
             	Match('.'); 
 
@@ -1119,8 +1169,8 @@ public partial class DhsqLexer : Lexer {
     		{
             int _type = SEMICOLON;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:224:2: ( ';' )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:224:4: ';'
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:238:2: ( ';' )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:238:4: ';'
             {
             	Match(';'); 
 
@@ -1142,8 +1192,8 @@ public partial class DhsqLexer : Lexer {
     		{
             int _type = COLON;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:228:2: ( ':' )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:228:4: ':'
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:242:2: ( ':' )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:242:4: ':'
             {
             	Match(':'); 
 
@@ -1165,8 +1215,8 @@ public partial class DhsqLexer : Lexer {
     		{
             int _type = COMMA;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:232:2: ( ',' )
-            // ..\\Source\\Antlr.Grammars\\Dhsq.g:232:4: ','
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:246:2: ( ',' )
+            // ..\\Source\\Antlr.Grammars\\Dhsq.g:246:4: ','
             {
             	Match(','); 
 
@@ -1183,8 +1233,8 @@ public partial class DhsqLexer : Lexer {
 
     override public void mTokens() // throws RecognitionException 
     {
-        // ..\\Source\\Antlr.Grammars\\Dhsq.g:1:8: ( T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | TSTRING | SQUOTE | ID | INT | WS | COMMENT | LINECOMMENT | DOT | SEMICOLON | COLON | COMMA )
-        int alt8 = 30;
+        // ..\\Source\\Antlr.Grammars\\Dhsq.g:1:8: ( T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | TSTRING | SQUOTE | ID | INT | WS | COMMENT | LINECOMMENT | DOT | SEMICOLON | COLON | COMMA )
+        int alt8 = 32;
         alt8 = dfa8.Predict(input);
         switch (alt8) 
         {
@@ -1322,77 +1372,91 @@ public partial class DhsqLexer : Lexer {
                 }
                 break;
             case 20 :
-                // ..\\Source\\Antlr.Grammars\\Dhsq.g:1:124: TSTRING
+                // ..\\Source\\Antlr.Grammars\\Dhsq.g:1:124: T__44
+                {
+                	mT__44(); 
+
+                }
+                break;
+            case 21 :
+                // ..\\Source\\Antlr.Grammars\\Dhsq.g:1:130: T__45
+                {
+                	mT__45(); 
+
+                }
+                break;
+            case 22 :
+                // ..\\Source\\Antlr.Grammars\\Dhsq.g:1:136: TSTRING
                 {
                 	mTSTRING(); 
 
                 }
                 break;
-            case 21 :
-                // ..\\Source\\Antlr.Grammars\\Dhsq.g:1:132: SQUOTE
+            case 23 :
+                // ..\\Source\\Antlr.Grammars\\Dhsq.g:1:144: SQUOTE
                 {
                 	mSQUOTE(); 
 
                 }
                 break;
-            case 22 :
-                // ..\\Source\\Antlr.Grammars\\Dhsq.g:1:139: ID
+            case 24 :
+                // ..\\Source\\Antlr.Grammars\\Dhsq.g:1:151: ID
                 {
                 	mID(); 
 
                 }
                 break;
-            case 23 :
-                // ..\\Source\\Antlr.Grammars\\Dhsq.g:1:142: INT
+            case 25 :
+                // ..\\Source\\Antlr.Grammars\\Dhsq.g:1:154: INT
                 {
                 	mINT(); 
 
                 }
                 break;
-            case 24 :
-                // ..\\Source\\Antlr.Grammars\\Dhsq.g:1:146: WS
+            case 26 :
+                // ..\\Source\\Antlr.Grammars\\Dhsq.g:1:158: WS
                 {
                 	mWS(); 
 
                 }
                 break;
-            case 25 :
-                // ..\\Source\\Antlr.Grammars\\Dhsq.g:1:149: COMMENT
+            case 27 :
+                // ..\\Source\\Antlr.Grammars\\Dhsq.g:1:161: COMMENT
                 {
                 	mCOMMENT(); 
 
                 }
                 break;
-            case 26 :
-                // ..\\Source\\Antlr.Grammars\\Dhsq.g:1:157: LINECOMMENT
+            case 28 :
+                // ..\\Source\\Antlr.Grammars\\Dhsq.g:1:169: LINECOMMENT
                 {
                 	mLINECOMMENT(); 
 
                 }
                 break;
-            case 27 :
-                // ..\\Source\\Antlr.Grammars\\Dhsq.g:1:169: DOT
+            case 29 :
+                // ..\\Source\\Antlr.Grammars\\Dhsq.g:1:181: DOT
                 {
                 	mDOT(); 
 
                 }
                 break;
-            case 28 :
-                // ..\\Source\\Antlr.Grammars\\Dhsq.g:1:173: SEMICOLON
+            case 30 :
+                // ..\\Source\\Antlr.Grammars\\Dhsq.g:1:185: SEMICOLON
                 {
                 	mSEMICOLON(); 
 
                 }
                 break;
-            case 29 :
-                // ..\\Source\\Antlr.Grammars\\Dhsq.g:1:183: COLON
+            case 31 :
+                // ..\\Source\\Antlr.Grammars\\Dhsq.g:1:195: COLON
                 {
                 	mCOLON(); 
 
                 }
                 break;
-            case 30 :
-                // ..\\Source\\Antlr.Grammars\\Dhsq.g:1:189: COMMA
+            case 32 :
+                // ..\\Source\\Antlr.Grammars\\Dhsq.g:1:201: COMMA
                 {
                 	mCOMMA(); 
 
@@ -1412,120 +1476,128 @@ public partial class DhsqLexer : Lexer {
 	}
 
     const string DFA8_eotS =
-        "\x01\uffff\x06\x12\x01\uffff\x01\x12\x02\uffff\x01\x12\x01\x24"+
-        "\x01\x26\x02\uffff\x01\x12\x01\x28\x08\uffff\x06\x12\x01\x32\x01"+
-        "\x12\x01\x34\x04\uffff\x01\x12\x04\uffff\x06\x12\x01\uffff\x01\x3c"+
-        "\x01\uffff\x04\x12\x01\x41\x02\x12\x01\uffff\x01\x44\x03\x12\x01"+
-        "\uffff\x01\x12\x01\x49\x01\uffff\x01\x4a\x01\x4b\x01\x4c\x01\x4d"+
-        "\x05\uffff";
+        "\x01\uffff\x08\x13\x01\uffff\x01\x13\x02\uffff\x01\x26\x01\x28"+
+        "\x02\uffff\x01\x13\x01\x2a\x08\uffff\x06\x13\x01\x35\x01\x36\x01"+
+        "\x37\x01\x13\x04\uffff\x01\x13\x04\uffff\x07\x13\x03\uffff\x01\x41"+
+        "\x04\x13\x01\x46\x03\x13\x01\uffff\x01\x4a\x03\x13\x01\uffff\x01"+
+        "\x13\x01\x4f\x01\x50\x01\uffff\x01\x51\x01\x52\x01\x53\x01\x54\x06"+
+        "\uffff";
     const string DFA8_eofS =
-        "\x4e\uffff";
+        "\x55\uffff";
     const string DFA8_minS =
-        "\x01\x09\x01\x65\x01\x6e\x01\x70\x01\x72\x01\x65\x01\x68\x01\uffff"+
-        "\x01\x6e\x02\uffff\x01\x72\x01\x3e\x01\x3d\x02\uffff\x01\x69\x01"+
-        "\x00\x03\uffff\x01\x2a\x04\uffff\x01\x6c\x01\x73\x01\x64\x01\x6f"+
-        "\x01\x6c\x01\x65\x01\x30\x01\x64\x01\x30\x04\uffff\x01\x6b\x04\uffff"+
-        "\x02\x65\x01\x61\x01\x6d\x01\x65\x01\x72\x01\uffff\x01\x30\x01\uffff"+
-        "\x01\x65\x01\x74\x01\x72\x01\x74\x01\x30\x01\x63\x01\x65\x01\uffff"+
-        "\x01\x30\x01\x65\x01\x74\x01\x65\x01\uffff\x01\x74\x01\x30\x01\uffff"+
-        "\x04\x30\x05\uffff";
+        "\x01\x09\x01\x65\x01\x6e\x01\x70\x01\x72\x01\x65\x01\x68\x01\x72"+
+        "\x01\x79\x01\uffff\x01\x6e\x02\uffff\x01\x3e\x01\x3d\x02\uffff\x01"+
+        "\x69\x01\x00\x03\uffff\x01\x2a\x04\uffff\x01\x6c\x01\x73\x01\x64"+
+        "\x01\x6f\x01\x6c\x01\x65\x03\x30\x01\x64\x04\uffff\x01\x6b\x04\uffff"+
+        "\x02\x65\x01\x61\x01\x6d\x01\x65\x01\x72\x01\x65\x03\uffff\x01\x30"+
+        "\x01\x65\x01\x74\x01\x72\x01\x74\x01\x30\x01\x63\x01\x65\x01\x72"+
+        "\x01\uffff\x01\x30\x01\x65\x01\x74\x01\x65\x01\uffff\x01\x74\x02"+
+        "\x30\x01\uffff\x04\x30\x06\uffff";
     const string DFA8_maxS =
-        "\x01\x7a\x01\x65\x01\x6e\x01\x70\x01\x72\x01\x65\x01\x68\x01\uffff"+
-        "\x01\x73\x02\uffff\x01\x72\x01\x3e\x01\x3d\x02\uffff\x01\x69\x01"+
-        "\uffff\x03\uffff\x01\x2f\x04\uffff\x01\x6c\x01\x73\x01\x64\x01\x6f"+
-        "\x01\x6c\x01\x65\x01\x7a\x01\x64\x01\x7a\x04\uffff\x01\x6b\x04\uffff"+
-        "\x02\x65\x01\x61\x01\x6d\x01\x65\x01\x72\x01\uffff\x01\x7a\x01\uffff"+
-        "\x01\x65\x01\x74\x01\x72\x01\x74\x01\x7a\x01\x63\x01\x65\x01\uffff"+
-        "\x01\x7a\x01\x65\x01\x74\x01\x65\x01\uffff\x01\x74\x01\x7a\x01\uffff"+
-        "\x04\x7a\x05\uffff";
+        "\x01\x7a\x01\x65\x01\x6e\x01\x70\x01\x72\x01\x65\x01\x68\x01\x72"+
+        "\x01\x79\x01\uffff\x01\x73\x02\uffff\x01\x3e\x01\x3d\x02\uffff\x01"+
+        "\x69\x01\uffff\x03\uffff\x01\x2f\x04\uffff\x01\x6c\x01\x73\x01\x64"+
+        "\x01\x6f\x01\x6c\x01\x65\x03\x7a\x01\x64\x04\uffff\x01\x6b\x04\uffff"+
+        "\x02\x65\x01\x61\x01\x6d\x01\x65\x01\x72\x01\x65\x03\uffff\x01\x7a"+
+        "\x01\x65\x01\x74\x01\x72\x01\x74\x01\x7a\x01\x63\x01\x65\x01\x72"+
+        "\x01\uffff\x01\x7a\x01\x65\x01\x74\x01\x65\x01\uffff\x01\x74\x02"+
+        "\x7a\x01\uffff\x04\x7a\x06\uffff";
     const string DFA8_acceptS =
-        "\x07\uffff\x01\x07\x01\uffff\x01\x09\x01\x0a\x03\uffff\x01\x0f"+
-        "\x01\x10\x02\uffff\x01\x16\x01\x17\x01\x18\x01\uffff\x01\x1b\x01"+
-        "\x1c\x01\x1d\x01\x1e\x09\uffff\x01\x12\x01\x0d\x01\x11\x01\x0e\x01"+
-        "\uffff\x01\x15\x01\x14\x01\x19\x01\x1a\x06\uffff\x01\x08\x01\uffff"+
-        "\x01\x0c\x07\uffff\x01\x0b\x04\uffff\x01\x04\x02\uffff\x01\x13\x04"+
-        "\uffff\x01\x06\x01\x01\x01\x02\x01\x03\x01\x05";
+        "\x09\uffff\x01\x09\x01\uffff\x01\x0b\x01\x0c\x02\uffff\x01\x11"+
+        "\x01\x12\x02\uffff\x01\x18\x01\x19\x01\x1a\x01\uffff\x01\x1d\x01"+
+        "\x1e\x01\x1f\x01\x20\x0a\uffff\x01\x14\x01\x0f\x01\x13\x01\x10\x01"+
+        "\uffff\x01\x17\x01\x16\x01\x1b\x01\x1c\x07\uffff\x01\x0e\x01\x08"+
+        "\x01\x0a\x09\uffff\x01\x0d\x04\uffff\x01\x04\x03\uffff\x01\x15\x04"+
+        "\uffff\x01\x06\x01\x07\x01\x01\x01\x02\x01\x03\x01\x05";
     const string DFA8_specialS =
-        "\x11\uffff\x01\x00\x3c\uffff}>";
+        "\x12\uffff\x01\x00\x42\uffff}>";
     static readonly string[] DFA8_transitionS = {
-            "\x02\x14\x02\uffff\x01\x14\x12\uffff\x01\x14\x01\x0f\x05\uffff"+
-            "\x01\x11\x01\x09\x01\x0a\x01\x07\x01\uffff\x01\x19\x01\uffff"+
-            "\x01\x16\x01\x15\x0a\x13\x01\x18\x01\x17\x01\x0d\x01\x0c\x01"+
-            "\x0e\x02\uffff\x1a\x12\x06\uffff\x01\x08\x02\x12\x01\x01\x01"+
-            "\x12\x01\x04\x02\x12\x01\x02\x02\x12\x01\x10\x02\x12\x01\x0b"+
-            "\x03\x12\x01\x05\x01\x12\x01\x03\x01\x12\x01\x06\x03\x12",
-            "\x01\x1a",
+            "\x02\x15\x02\uffff\x01\x15\x12\uffff\x01\x15\x01\x10\x05\uffff"+
+            "\x01\x12\x01\x0b\x01\x0c\x01\x09\x01\uffff\x01\x1a\x01\uffff"+
+            "\x01\x17\x01\x16\x0a\x14\x01\x19\x01\x18\x01\x0e\x01\x0d\x01"+
+            "\x0f\x02\uffff\x1a\x13\x06\uffff\x01\x0a\x01\x08\x01\x13\x01"+
+            "\x01\x01\x13\x01\x04\x02\x13\x01\x02\x02\x13\x01\x11\x02\x13"+
+            "\x01\x07\x03\x13\x01\x05\x01\x13\x01\x03\x01\x13\x01\x06\x03"+
+            "\x13",
             "\x01\x1b",
             "\x01\x1c",
             "\x01\x1d",
             "\x01\x1e",
             "\x01\x1f",
-            "",
-            "\x01\x21\x04\uffff\x01\x20",
-            "",
-            "",
+            "\x01\x20",
+            "\x01\x21",
             "\x01\x22",
-            "\x01\x23",
+            "",
+            "\x01\x24\x04\uffff\x01\x23",
+            "",
+            "",
             "\x01\x25",
-            "",
-            "",
             "\x01\x27",
-            "\x00\x29",
+            "",
+            "",
+            "\x01\x29",
+            "\x00\x2b",
             "",
             "",
             "",
-            "\x01\x2a\x04\uffff\x01\x2b",
+            "\x01\x2c\x04\uffff\x01\x2d",
             "",
             "",
             "",
             "",
-            "\x01\x2c",
-            "\x01\x2d",
             "\x01\x2e",
             "\x01\x2f",
             "\x01\x30",
             "\x01\x31",
-            "\x0a\x12\x07\uffff\x1a\x12\x06\uffff\x1a\x12",
+            "\x01\x32",
             "\x01\x33",
-            "\x0a\x12\x07\uffff\x1a\x12\x06\uffff\x1a\x12",
-            "",
-            "",
-            "",
-            "",
-            "\x01\x35",
-            "",
-            "",
-            "",
-            "",
-            "\x01\x36",
-            "\x01\x37",
+            "\x0a\x13\x07\uffff\x1a\x13\x06\uffff\x03\x13\x01\x34\x16\x13",
+            "\x0a\x13\x07\uffff\x1a\x13\x06\uffff\x1a\x13",
+            "\x0a\x13\x07\uffff\x1a\x13\x06\uffff\x1a\x13",
             "\x01\x38",
+            "",
+            "",
+            "",
+            "",
             "\x01\x39",
+            "",
+            "",
+            "",
+            "",
             "\x01\x3a",
             "\x01\x3b",
-            "",
-            "\x0a\x12\x07\uffff\x1a\x12\x06\uffff\x1a\x12",
-            "",
+            "\x01\x3c",
             "\x01\x3d",
             "\x01\x3e",
             "\x01\x3f",
             "\x01\x40",
-            "\x0a\x12\x07\uffff\x1a\x12\x06\uffff\x1a\x12",
+            "",
+            "",
+            "",
+            "\x0a\x13\x07\uffff\x1a\x13\x06\uffff\x1a\x13",
             "\x01\x42",
             "\x01\x43",
-            "",
-            "\x0a\x12\x07\uffff\x1a\x12\x06\uffff\x1a\x12",
+            "\x01\x44",
             "\x01\x45",
-            "\x01\x46",
+            "\x0a\x13\x07\uffff\x1a\x13\x06\uffff\x1a\x13",
             "\x01\x47",
-            "",
             "\x01\x48",
-            "\x0a\x12\x07\uffff\x1a\x12\x06\uffff\x1a\x12",
+            "\x01\x49",
             "",
-            "\x0a\x12\x07\uffff\x1a\x12\x06\uffff\x1a\x12",
-            "\x0a\x12\x07\uffff\x1a\x12\x06\uffff\x1a\x12",
-            "\x0a\x12\x07\uffff\x1a\x12\x06\uffff\x1a\x12",
-            "\x0a\x12\x07\uffff\x1a\x12\x06\uffff\x1a\x12",
+            "\x0a\x13\x07\uffff\x1a\x13\x06\uffff\x1a\x13",
+            "\x01\x4b",
+            "\x01\x4c",
+            "\x01\x4d",
+            "",
+            "\x01\x4e",
+            "\x0a\x13\x07\uffff\x1a\x13\x06\uffff\x1a\x13",
+            "\x0a\x13\x07\uffff\x1a\x13\x06\uffff\x1a\x13",
+            "",
+            "\x0a\x13\x07\uffff\x1a\x13\x06\uffff\x1a\x13",
+            "\x0a\x13\x07\uffff\x1a\x13\x06\uffff\x1a\x13",
+            "\x0a\x13\x07\uffff\x1a\x13\x06\uffff\x1a\x13",
+            "\x0a\x13\x07\uffff\x1a\x13\x06\uffff\x1a\x13",
+            "",
             "",
             "",
             "",
@@ -1559,7 +1631,7 @@ public partial class DhsqLexer : Lexer {
 
         override public string Description
         {
-            get { return "1:1: Tokens : ( T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | TSTRING | SQUOTE | ID | INT | WS | COMMENT | LINECOMMENT | DOT | SEMICOLON | COLON | COMMA );"; }
+            get { return "1:1: Tokens : ( T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | TSTRING | SQUOTE | ID | INT | WS | COMMENT | LINECOMMENT | DOT | SEMICOLON | COLON | COMMA );"; }
         }
 
     }
@@ -1572,12 +1644,12 @@ public partial class DhsqLexer : Lexer {
         switch ( s )
         {
                	case 0 : 
-                   	int LA8_17 = input.LA(1);
+                   	int LA8_18 = input.LA(1);
 
                    	s = -1;
-                   	if ( ((LA8_17 >= '\u0000' && LA8_17 <= '\uFFFF')) ) { s = 41; }
+                   	if ( ((LA8_18 >= '\u0000' && LA8_18 <= '\uFFFF')) ) { s = 43; }
 
-                   	else s = 40;
+                   	else s = 42;
 
                    	if ( s >= 0 ) return s;
                    	break;

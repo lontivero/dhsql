@@ -66,14 +66,13 @@ update
 	;
 	
 select returns [SelectStatement SelectValue]
-@init
-{
-	$SelectValue = new SelectStatement(); 
-} 
-	:	'from' 
-	    i = id { $SelectValue.SourceId = i.Id; }
-	    'select' f = fields { $SelectValue.Fields = f.FieldsValue;}
-	    ('where' e=expression { $SelectValue.Where = e.ExpressionValue; })?
+	:	'from'   { $SelectValue = new SelectStatement(); }
+	    i = id   { $SelectValue.SourceId = i.Id; }
+	    'select' f=fields      { $SelectValue.Fields  = f.FieldsValue;}
+	    ('where' { $SelectValue.Where = new Where(); } 
+			e=expression { $SelectValue.Where.Condition = e.ExpressionValue; } )?
+	    ('order' 'by' { $SelectValue.OrderBy = new OrderBy(); } 
+			o=orders { $SelectValue.OrderBy.Fields = o.IdentifiersValue;   } )?
 	;
 
 fields returns [List<Field> FieldsValue]
@@ -137,7 +136,22 @@ right returns [Value Node]
 	:	s=TSTRING { $Node = new Value() { Val = s.Text }; }
 	|	i=INT     { $Node = new Value() { Val = i.Text }; }
 	;
-	
+
+orders returns [List<Identifier> IdentifiersValue]
+@init
+{
+	$IdentifiersValue = new List<Identifier>(); 
+} 
+	:	i = id
+		{ 
+			$IdentifiersValue.Add(i.Id); 
+		}
+		(COMMA i = id 
+		{
+			$IdentifiersValue.Add(i.Id);
+		})* 
+	;
+		
 op returns [ComparationOperators Operator]
 	:	'='		{ $Operator = ComparationOperators.EqualTo; }
 	|	'<'		{ $Operator = ComparationOperators.LessThan; }
