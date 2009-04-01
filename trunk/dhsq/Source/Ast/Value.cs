@@ -16,6 +16,11 @@ namespace Motorola.PublicSafety.Platform.DHStore.Compiler
 
         public void Accept(AbstractVisitor visitor)
         {
+            if (visitor == null)
+            {
+                throw new ArgumentNullException("visitor");
+            }
+
             visitor.VisitValue(this);
         }
 

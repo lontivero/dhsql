@@ -18,7 +18,13 @@ namespace Motorola.PublicSafety.Platform.DHStore.Compiler
             set;
         }
 
-        public Expression Where
+        public Where Where
+        {
+            get;
+            set;
+        }
+
+        public OrderBy OrderBy
         {
             get;
             set;
@@ -28,6 +34,11 @@ namespace Motorola.PublicSafety.Platform.DHStore.Compiler
 
         public void Accept(AbstractVisitor visitor)
         {
+            if (visitor == null)
+            {
+                throw new ArgumentNullException("visitor");
+            }
+
             visitor.VisitSelect(this);
         }
 

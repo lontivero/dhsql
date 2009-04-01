@@ -4,15 +4,9 @@ using System.Text;
 
 namespace Motorola.PublicSafety.Platform.DHStore.Compiler
 {
-    public sealed class Field : IVisitableNode
+    public class Where : IVisitableNode
     {
-        public string XPath
-        {
-            get;
-            set;
-        }
-
-        public Identifier Alias
+        public Expression Condition
         {
             get;
             set;
@@ -27,7 +21,7 @@ namespace Motorola.PublicSafety.Platform.DHStore.Compiler
                 throw new ArgumentNullException("visitor");
             }
 
-            visitor.VisitField(this);
+            visitor.VisitWhere(this);
         }
 
         #endregion

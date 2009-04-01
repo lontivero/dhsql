@@ -15,11 +15,8 @@ namespace Motorola.PublicSafety.Platform.DHStore.Compiler
                 f.Accept(this);
             }
 
-            if (node.Where != null)
-            {
-                Console.WriteLine("WHERE");
-                node.Where.Accept(this);
-            }
+            node.Where.Accept(this);
+            node.OrderBy.Accept(this);
 
             return null;
         }
@@ -53,6 +50,18 @@ namespace Motorola.PublicSafety.Platform.DHStore.Compiler
         public override void VisitValue(Value value)
         {
             Console.Write(value.Val);
+        }
+
+        public override void VisitWhere(Where where)
+        {
+            Console.WriteLine("WHERE");
+            base.VisitWhere(where);
+        }
+
+        public override void VisitOrderBy(OrderBy orderBy)
+        {
+            Console.WriteLine("ORDER BY");
+            base.VisitOrderBy(orderBy);
         }
     }
 }
