@@ -173,9 +173,9 @@ qualifiedid
 
 
 TSTRING
-    : SQUOTE (~'\'' )* SQUOTE
+    : SQUOTE (~'\'' )* SQUOTE 
+    { Text = Text.Substring(1, Text.Length-2); } 
 	;
-
 
 SQUOTE	
 	:	'\''
