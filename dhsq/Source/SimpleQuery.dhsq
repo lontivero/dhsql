@@ -1,0 +1,7 @@
+from Pawns 
+select 
+    '/Document/PawnNo' as Number,
+    '/Document/FullName' as Name
+where ((Name = 'Franco') and Number > 10)
+order by Number
+

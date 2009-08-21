@@ -26,18 +26,16 @@ namespace Motorola.PublicSafety.Platform.DHStore.Compiler
 
         public static void Main(String[] args)
         {
-            var sb = new StringBuilder();
-            sb
-                .Append("from Agencies ")
-                .Append("select ")
-                .Append("  '/Person/FirstName' as FirstName, ")
-                .Append("  '/Person/Age' as Age, ")
-                .Append("  '/Person/Children/Name' as Childs ")
-                .Append("where ")
-                .Append("((FirstName = 'Franco') and Age > 10)");
-
+            string query;
+#if !USE_HARDCODE            
+            query = @"from Pawns 
+                select '/Document/PawnNo' as Number, '/Document/FullName' as Name
+                where ((Name = 'Franco') and Number > 10) order by Number";
+#else
+            query = System.IO.File.ReadAllText("SimpleQuery.dhsq");
+#endif
             var interpreter = new Dhsqli();
-            var docs = interpreter.ExecQuery(sb.ToString());
+            var docs = interpreter.ExecQuery(query);
         }
     }
 }

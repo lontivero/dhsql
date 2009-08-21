@@ -1,6 +1,10 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <StartWorkingDirectory>C:\Users\Lucas\Projects\Compilers\dhsql\dhsq\Tests\</StartWorkingDirectory>
+    <StartWorkingDirectory>
+    </StartWorkingDirectory>
     <StartArguments>SimpleQuery.dhsq</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ProjectView>ProjectFiles</ProjectView>
   </PropertyGroup>
 </Project>

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{1A8A3D85-1E98-4FB9-8298-00FF57CD3EBF}</ProjectGuid>
     <OutputType>Exe</OutputType>
@@ -42,11 +42,11 @@
     </Reference>
     <Reference Include="Motorola.Common, Version=0.1.830.1, Culture=neutral, PublicKeyToken=a14438fffbde4426, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Library\Motorola.Common.dll</HintPath>
+      <HintPath>C:\Program Files\Motorola\SmartClient\Motorola.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Motorola.DHStore.Definitions, Version=0.1.830.1, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Motorola.DHStore.Definitions, Version=0.1.830.1, Culture=neutral, PublicKeyToken=a14438fffbde4426, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Library\Motorola.DHStore.Definitions.dll</HintPath>
+      <HintPath>C:\Program Files\Motorola\SmartClient\Motorola.DHStore.Definitions.dll</HintPath>
     </Reference>
     <Reference Include="StringTemplate, Version=3.0.1.6846, Culture=neutral, PublicKeyToken=beee492b52c41e85, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -72,7 +72,8 @@
     <Compile Include="Antlr.AutoGen\DhsqLexer.cs" />
     <Compile Include="Antlr.AutoGen\DhsqParser.cs" />
     <Compile Include="Ast\ComparationOperators.cs" />
-    <Compile Include="Ast\InterpreterVisitor.cs" />
+    <Compile Include="Visitors\CodeGenerationVisitor.cs" />
+    <Compile Include="Visitors\InterpreterVisitor.cs" />
     <Compile Include="Compiler.cs" />
     <Compile Include="Ast\Field.cs" />
     <Compile Include="Ast\IStatement.cs" />
@@ -86,14 +87,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ast\SelectStatement.cs" />
     <Compile Include="Ast\Visitor.cs" />
-    <Compile Include="Ast\TraceVisitor.cs" />
+    <Compile Include="Visitors\TraceVisitor.cs" />
     <Compile Include="Ast\Value.cs" />
     <Compile Include="Ast\SimpleExpression.cs" />
     <Compile Include="Ast\Where.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Antlr.Grammars\Dhsq.g" />
+    <None Include="App.config" />
     <None Include="Ast\dhsql.cd" />
+    <None Include="SimpleQuery.dhsq">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
